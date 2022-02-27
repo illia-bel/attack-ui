@@ -1,1 +1,23 @@
 // app global css in SCSS form
+body {
+  font-family: 'Manrope';
+}
+
+.q-btn--actionable.q-btn--standard:before,
+.q-btn:before {
+  box-shadow: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+
+  &:hover {
+    color: #000;
+  }
+}
+
+.q-dialog__backdrop {
+  backdrop-filter: blur(3px);
+}
