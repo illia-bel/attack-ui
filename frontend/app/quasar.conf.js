@@ -11,8 +11,8 @@ const { configure } = require('quasar/wrappers')
 const version = '1.0.0'
 
 const envBase = {
-  PROJECT_ID: 'ddos-app',
-  BRAND_NAME: 'DDoS APP',
+  PROJECT_ID: 'attack-ui',
+  BRAND_NAME: 'Attack Ui',
   BRAND_SHORT_NAME: '',
   BRAND_DESCRIPTION: '',
 }
@@ -215,7 +215,7 @@ module.exports = configure(function (ctx) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: 'ddos-app',
+        appId: 'attack-ui',
       },
 
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
