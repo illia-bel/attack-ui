@@ -8,6 +8,23 @@
 
 const { configure } = require('quasar/wrappers')
 
+const version = '1.0.0'
+
+const envBase = {
+  PROJECT_ID: 'ddos-app',
+  BRAND_NAME: 'DDoS APP',
+  BRAND_SHORT_NAME: '',
+  BRAND_DESCRIPTION: '',
+}
+
+const envDev = {
+  VERSION: `${version} | DEV mode`,
+}
+
+const envProd = {
+  VERSION: version,
+}
+
 module.exports = configure(function (ctx) {
   return {
     // https://quasar.dev/quasar-cli/supporting-ts
@@ -40,7 +57,8 @@ module.exports = configure(function (ctx) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
+      vueRouterMode: 'history', // available values: 'hash', 'history'
+      env,
 
       // transpile: false,
       // publicPath: '/',
@@ -71,8 +89,8 @@ module.exports = configure(function (ctx) {
       server: {
         type: 'http',
       },
-      port: 8080,
-      open: true, // opens browser window automatically
+      port: 8787,
+      open: false, // opens browser window automatically
     },
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
@@ -90,7 +108,7 @@ module.exports = configure(function (ctx) {
       // directives: [],
 
       // Quasar plugins
-      plugins: [],
+      plugins: ['Notify', 'Dialog'],
     },
 
     // animations: 'all', // --- includes all animations
