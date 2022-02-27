@@ -1,0 +1,13 @@
+{
+  "name": "ddos-app",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "backend/*",
+    "frontend/*"
+  ],
+  "scripts": {
+    "fix": "npx prettier \"**/*\" --write"
+  }
+}
