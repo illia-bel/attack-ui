@@ -51,7 +51,7 @@ const navList = [
     text: 'DDOS Attack',
     icon: 'dns',
     to: {
-      name: 'DdosAttack',
+      name: 'DdosConfig',
     },
   },
 ]
