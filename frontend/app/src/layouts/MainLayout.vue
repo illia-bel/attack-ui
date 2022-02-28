@@ -1,10 +1,7 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header bordered>
-      <q-toolbar>
-        <q-toolbar-title> Quasar App </q-toolbar-title>
-      </q-toolbar>
-    </q-header>
+  <q-layout view="hHh lpR fFf">
+    <a-drawer v-model="drawerState" />
+    <a-header v-model="drawerState" />
 
     <q-page-container>
       <q-page class="q-pa-md">
@@ -13,3 +10,11 @@
     </q-page-container>
   </q-layout>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import ADrawer from 'src/components/Nav/Drawer/ADrawer'
+import AHeader from 'src/components/Nav/Header/AHeader'
+
+const drawerState = ref(false)
+</script>
