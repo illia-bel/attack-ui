@@ -4,7 +4,7 @@
     <a-header v-model="drawerState" />
 
     <q-page-container>
-      <q-page class="q-pa-md">
+      <q-page class="q-pl-md q-pr-md q-pb-md">
         <router-view />
       </q-page>
     </q-page-container>
