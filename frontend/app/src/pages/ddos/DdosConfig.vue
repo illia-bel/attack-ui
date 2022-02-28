@@ -1,43 +1,19 @@
 <template>
-  <a-card class="col-12" title="DDOS Configuration">
-    <template #body>
-      <a-new-target-form />
-      <a-targets-list />
-    </template>
+  <a-card class="col-12" title="DDOS Configuration" />
+
+  <a-ddos-target-card />
+  <a-card class="col-12">
     <template #actions>
       <q-btn
-        label="start"
+        label="start attack"
         :to="{ name: 'DdosAttack' }"
         color="primary"
-      />
-      <q-btn
-        label="Remove All Targets"
-        color="red"
-        flat
-        class="q-ml-sm"
-        @click="removeAllTargets"
       />
     </template>
   </a-card>
 </template>
 
 <script setup>
-import { onBeforeMount } from 'vue'
-import { useStore } from 'vuex'
-
-import ATargetsList from 'src/components/Ddos/ATargetsList'
-import ANewTargetForm from 'src/components/Ddos/ANewTargetForm'
 import ACard from 'src/components/Cards/ACard'
-
-const store = useStore()
-
-onBeforeMount(() => {
-  store.dispatch('ddos/setDefaultTargets')
-})
-
-const removeAllTargets = () => {
-  store.commit('ddos/removeAllTargets')
-}
+import ADdosTargetCard from 'src/components/Ddos/DdosTarget/ADdosTargetCard'
 </script>
-
-<style lang="scss" scouped></style>

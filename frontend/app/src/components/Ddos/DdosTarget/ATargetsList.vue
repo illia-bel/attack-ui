@@ -20,10 +20,14 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, onBeforeMount } from 'vue'
 import { useStore } from 'vuex'
 
 const store = useStore()
+
+onBeforeMount(() => {
+  store.dispatch('ddos/setDefaultTargets')
+})
 
 /**
  * Remove one target item
