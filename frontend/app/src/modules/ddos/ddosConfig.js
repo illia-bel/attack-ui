@@ -1,6 +1,9 @@
 // Ddos attack page functions
 
 import { reactive } from 'vue'
+import isURL from 'validator/lib/isURL'
+import isIP from 'validator/lib/isIP'
+
 import {
   notifyError,
   notifyPrimary,
@@ -30,17 +33,37 @@ export const removeTarget = index => {
 }
 
 /**
- * Add target item to targetsList
+ * Validate Target Item
  * @param {String} target
+ * @returns
  */
-export const addTarget = target => {
+const validateTarget = target => {
+  if (!target) return
+
+  if (!(isURL(target) || isIP(target))) {
+    notifyError('It doesn`t look like a url or ip address')
+    return
+  }
+
   // If target already added to targetsList
-  if (targetsList.indexOf(target) > -1) {
+  if (targetsList.indexOf(target.trim()) > -1) {
     notifyError('Target already added')
     return
   }
-  targetsList.unshift(target)
+
+  return true
+}
+
+/**
+ * Add target item to targetsList
+ * @param {String} target
+ */
+export const setTarget = target => {
+  if (!validateTarget(target)) return
+  targetsList.unshift(target.trim())
   notifyPrimary('Target added')
+
+  return true
 }
 
 /**
