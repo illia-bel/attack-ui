@@ -98,6 +98,9 @@ module.exports = configure(function (ctx) {
       chainWebpack(/* chain */) {
         //
       },
+      extendWebpack(cfg) {
+        cfg.experiments = { topLevelAwait: true }
+      },
     },
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
