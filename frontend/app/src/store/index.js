@@ -3,7 +3,7 @@ import { createStore } from 'vuex'
 
 import VuexPersistence from 'vuex-persist'
 
-// import example from './module-example'
+import ddos from './ddos'
 
 /*
  * If not building with SSR mode, you can
@@ -21,7 +21,7 @@ export default store(function (/* { ssrContext } */) {
 
   const Store = createStore({
     modules: {
-      // example
+      ddos,
     },
     plugins: [vuexLocal.plugin],
     // enable strict mode (adds overhead!)
