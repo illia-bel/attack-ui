@@ -1,3 +1,5 @@
 <template>
-  <router-view />
+  <div class="row">
+    <router-view />
+  </div>
 </template>
