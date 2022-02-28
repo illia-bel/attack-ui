@@ -2,7 +2,7 @@
  * Get targets for attack
  * @returns {Object}
  */
-export const getTargets = async () => {
+export const getDefaultTargets = async () => {
   // TODO replaced by fetch request to json file/api
   return [
     'https://lenta.ru/',
