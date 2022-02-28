@@ -30,6 +30,6 @@ jobs:
         env:
           REPO: self
           BRANCH: build
-          FOLDER: frontend/app/dist
+          FOLDER: frontend/app/dist/spa
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MESSAGE: 'Build: ({sha}) {msg}' # The commit message
