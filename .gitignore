@@ -30,7 +30,6 @@ db_data/
 !.yarn/plugins
 !.yarn/sdks
 !.yarn/versions
-yarn.lock
 .env.json
 .env
 .env.secret
