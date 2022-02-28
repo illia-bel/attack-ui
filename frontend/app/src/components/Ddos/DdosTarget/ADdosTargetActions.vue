@@ -3,7 +3,6 @@
     label="Remove All Targets"
     color="red"
     flat
-    class="q-ml-sm"
     @click="removeAllTargets"
   />
 </template>

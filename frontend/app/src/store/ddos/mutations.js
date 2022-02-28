@@ -43,3 +43,24 @@ export const setInitTargets = (state, targets) => {
   removeAllTargets(state)
   state.targetsList.push(...targets)
 }
+
+/**
+ * Set user config ddos
+ * @param {Object} state
+ * @param {Object} config User ddos config
+ */
+export const setDdosConfig = (state, config) => {
+  for (const key in config) {
+    config[key] = Number(config[key])
+  }
+
+  state.config.user = config
+}
+
+/**
+ * Reset config ddos
+ * @param {Object} state
+ */
+export const resetDdosConfig = state => {
+  state.config.user = state.config.default
+}
