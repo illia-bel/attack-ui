@@ -8,7 +8,7 @@
       label="Link/ip to target"
       autofocus
       stack-label
-      class="col-4"
+      class="col-8 col-md-4"
     />
     <q-btn
       label="Add"
@@ -21,14 +21,18 @@
 
 <script setup>
 import { ref } from 'vue'
-
-import { setTarget } from 'src/modules/ddos/ddosConfig'
+import { useStore } from 'vuex'
+const store = useStore()
 
 const target = ref()
+
 const initSetTarget = () => {
-  const result = setTarget(target.value)
-  if (!result) return
-  target.value = ''
+  store.commit('ddos/setTarget', {
+    target: target.value,
+    callback() {
+      target.value = ''
+    },
+  })
 }
 </script>
 

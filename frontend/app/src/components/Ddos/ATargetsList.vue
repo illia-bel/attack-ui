@@ -10,7 +10,7 @@
         removable
         outline
         color="primary"
-        @remove="this.$emit('removeTarget', key)"
+        @remove="removeTarget(key)"
       >
         <q-tooltip> Click to open in a new tab </q-tooltip>
         <a :href="target" target="_blank">{{ target }}</a>
@@ -20,10 +20,20 @@
 </template>
 
 <script setup>
-const props = defineProps({
-  targetsList: {
-    type: Array,
-    default: () => [],
-  },
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+
+const store = useStore()
+
+/**
+ * Remove one target item
+ * @param {Number} index index target item in array
+ */
+const removeTarget = index => {
+  store.commit('ddos/removeTarget', index)
+}
+
+const targetsList = computed(() => {
+  return store.getters['ddos/getTargetsList']
 })
 </script>

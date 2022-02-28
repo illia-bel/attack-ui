@@ -1,4 +1,3 @@
-/*
-export function someGetter (state) {
+export const getTargetsList = state => {
+  return state.targetsList
 }
-*/

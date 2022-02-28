@@ -2,10 +2,7 @@
   <a-card class="col-12" title="DDOS Configuration">
     <template #body>
       <a-new-target-form />
-      <a-targets-list
-        :targets-list="targetsList"
-        @remove-target="removeTarget"
-      />
+      <a-targets-list />
     </template>
     <template #actions>
       <q-btn
@@ -26,22 +23,21 @@
 
 <script setup>
 import { onBeforeMount } from 'vue'
-
-import {
-  targetsList,
-  removeTarget,
-  removeAllTargets,
-  fetchTargets,
-} from 'src/modules/ddos/ddosConfig'
+import { useStore } from 'vuex'
 
 import ATargetsList from 'src/components/Ddos/ATargetsList'
 import ANewTargetForm from 'src/components/Ddos/ANewTargetForm'
 import ACard from 'src/components/Cards/ACard'
 
+const store = useStore()
+
 onBeforeMount(() => {
-  if (targetsList.length > 0) return
-  fetchTargets()
+  store.dispatch('ddos/setDefaultTargets')
 })
+
+const removeAllTargets = () => {
+  store.commit('ddos/removeAllTargets')
+}
 </script>
 
 <style lang="scss" scouped></style>
