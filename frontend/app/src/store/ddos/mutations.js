@@ -18,7 +18,6 @@ export const removeTarget = (state, index) => {
 
 /**
  * Set targets to state
- * @param {Object} state
  * @param {Array} target Target link/ip
  */
 export const setTarget = (state, { target, callback }) => {
@@ -36,7 +35,6 @@ export const setTarget = (state, { target, callback }) => {
 
 /**
  * Set default targets list to state
- * @param {Object} state
  * @param {Array} targets default targets list
  */
 export const setInitTargets = (state, targets) => {
@@ -46,7 +44,6 @@ export const setInitTargets = (state, targets) => {
 
 /**
  * Set user config ddos
- * @param {Object} state
  * @param {Object} config User ddos config
  */
 export const setDdosConfig = (state, config) => {
@@ -59,8 +56,47 @@ export const setDdosConfig = (state, config) => {
 
 /**
  * Reset config ddos
- * @param {Object} state
  */
 export const resetDdosConfig = state => {
   state.config.user = state.config.default
+}
+
+/**
+ *
+ * @param {Array} data
+ * {
+ *    target: true/false
+ * }
+ */
+export const setResultsBrowserAttack = (state, data) => {
+  const results = state.resultsBrowserAttack
+
+  for (const target in data) {
+    // If target property is not created
+    if (!results[target]) {
+      results[target] = {
+        success: 0,
+        error: 0,
+      }
+    }
+
+    // Add statistics count
+    results[target][data[target] ? 'success' : 'error']++
+  }
+}
+
+/**
+ * Set Browser Attack Status
+ * @param {Boolean} status true - active/ false - disable
+ */
+export const setBrowserAttackStatus = (state, status) => {
+  state.browserAttackStatus = status
+}
+
+/**
+ * Set setInterval id
+ * @param {Number} id
+ */
+export const setBrowserAttackIntervalId = (state, id) => {
+  state.browserAttackIntervalId = id
 }

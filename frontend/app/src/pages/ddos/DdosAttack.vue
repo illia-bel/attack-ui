@@ -1,8 +1,23 @@
-<template>DdosAttack</template>
+<template>
+  <a-ddos-attack-header />
+  <a-ddos-results />
+</template>
 
 <script setup>
-const props = defineProps({})
-const emit = defineEmits([])
-</script>
+import { computed, onMounted } from 'vue'
+import { useStore } from 'vuex'
+import ADdosAttackHeader from 'src/components/Ddos/DdosAttack/ADdosAttackHeader'
+import ADdosResults from 'src/components/Ddos/DdosAttack/ADdosResults'
 
-<style lang="scss" scouped></style>
+const store = useStore()
+
+const attackStatus = computed(() => {
+  return store.getters['ddos/getBrowserAttackStatus']
+})
+
+onMounted(() => {
+  if (attackStatus.value) {
+    store.dispatch('ddos/initBrowserAttack')
+  }
+})
+</script>
