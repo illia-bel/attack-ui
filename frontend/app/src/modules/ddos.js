@@ -1,3 +1,5 @@
+// Ddos attack page functions
+
 import { reactive } from 'vue'
 import {
   notifyError,
