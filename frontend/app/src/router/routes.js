@@ -20,8 +20,14 @@ const routes = [
         redirect: { name: 'Index' },
         children: [
           {
+            name: 'DdosConfig',
+            path: 'ddos/config',
+            component: () =>
+              import('pages/ddos/DdosConfig'),
+          },
+          {
             name: 'DdosAttack',
-            path: 'ddos',
+            path: 'ddos/start',
             component: () =>
               import('pages/ddos/DdosAttack'),
           },
