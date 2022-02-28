@@ -19,7 +19,7 @@
 
     <q-card-section
       v-if="this.$slots.actions"
-      align="right"
+      :align="actionsAlign"
     >
       <slot name="actions" />
     </q-card-section>
@@ -30,6 +30,10 @@
 import { computed, useSlots } from 'vue'
 const props = defineProps({
   title: String,
+  actionsAlign: {
+    type: String,
+    default: 'right',
+  },
 })
 const slots = useSlots()
 
