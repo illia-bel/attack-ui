@@ -1,11 +1,31 @@
 const routes = [
   {
+    name: 'MainLayout',
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    component: () => import('layouts/MainLayout'),
     children: [
       {
-        path: '',
-        component: () => import('pages/Index.vue'),
+        name: 'Index',
+        path: '/',
+        component: () => import('pages/Index'),
+      },
+
+      /**
+       * Attacks Pages
+       */
+      {
+        name: 'AttackLayout',
+        path: '/attack',
+        component: () => import('layouts/AttackLayout'),
+        redirect: { name: 'Index' },
+        children: [
+          {
+            name: 'DdosAttack',
+            path: 'ddos',
+            component: () =>
+              import('pages/ddos/DdosAttack'),
+          },
+        ],
       },
     ],
   },
@@ -14,7 +34,7 @@ const routes = [
   // but you can also remove it
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/Error404.vue'),
+    component: () => import('pages/Error404'),
   },
 ]
 
