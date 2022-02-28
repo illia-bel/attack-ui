@@ -12,7 +12,7 @@ const version = '1.0.0'
 
 const envBase = {
   PROJECT_ID: 'attack-ui',
-  BRAND_NAME: 'Attack Ui',
+  BRAND_NAME: 'Attack UI',
   BRAND_SHORT_NAME: '',
   BRAND_DESCRIPTION: '',
 }
@@ -26,6 +26,22 @@ const envProd = {
 }
 
 module.exports = configure(function (ctx) {
+  let env = {
+    ...envBase,
+  }
+
+  if (ctx.prod) {
+    env = {
+      ...env,
+      ...envProd,
+    }
+  } else {
+    env = {
+      ...env,
+      ...envDev,
+    }
+  }
+
   return {
     // https://quasar.dev/quasar-cli/supporting-ts
     supportTS: false,
