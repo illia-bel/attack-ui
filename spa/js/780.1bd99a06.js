@@ -1,0 +1,1 @@
+"use strict";(self["webpackChunkattack_ui_app"]=self["webpackChunkattack_ui_app"]||[]).push([[780],{8780:(a,t,e)=>{e.r(t),e.d(t,{default:()=>h});var n=e(536);const u=(0,n._)("h1",{class:"text-h5"},"Main Dashboard",-1),s=(0,n._)("p",null,"In development",-1);function c(a,t){return(0,n.wg)(),(0,n.iD)(n.HY,null,[u,s],64)}var l=e(9895);const p={},r=(0,l.Z)(p,[["render",c]]),h=r}}]);
