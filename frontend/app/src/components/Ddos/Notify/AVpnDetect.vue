@@ -52,7 +52,7 @@ const updateInfo = async () => {
 
   ipInfo.splice(0, ipInfo.length)
 
-  if (!resp.geoplugin_countryCode) {
+  if (!resp.countryCode) {
     dataIsLoaded.value = false
     loadingData.value = false
     return
@@ -61,17 +61,16 @@ const updateInfo = async () => {
   }
 
   showWarning.value =
-    resp.geoplugin_countryCode !== 'RU' &&
-    resp.geoplugin_countryCode !== 'BY'
+    resp.countryCode !== 'RU' && resp.countryCode !== 'BY'
   ipInfo.push(
     ...[
       {
         label: 'Your IP',
-        info: resp.geoplugin_request,
+        info: resp.ipAddress,
       },
       {
         label: 'IP Country',
-        info: `${resp.geoplugin_countryName}, ${resp.geoplugin_regionName}`,
+        info: `${resp.continentName} ${resp.countryName}, ${resp.city}`,
       },
     ],
   )
