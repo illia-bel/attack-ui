@@ -4,7 +4,7 @@
       <q-form class="row ddos-config-card">
         <q-input
           v-model="formData.reqCount"
-          label="Site requests per second"
+          label="Sites requests per second"
           type="number"
           class="col-12 col-md-6 q-pr-md"
         />

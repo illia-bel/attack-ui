@@ -1,6 +1,6 @@
 <template>
   <q-card flat bordered class="my-card">
-    <q-card-section v-if="title || this.$slots.title">
+    <q-card-section v-if="title || slots.title">
       <div class="text-h6">
         <slot name="title">
           {{ title }}
@@ -9,7 +9,7 @@
     </q-card-section>
 
     <q-card-section
-      v-if="this.$slots.body"
+      v-if="slots.body"
       :class="{
         'q-pt-none': cardHasTitle,
       }"
@@ -18,7 +18,7 @@
     </q-card-section>
 
     <q-card-section
-      v-if="this.$slots.actions"
+      v-if="slots.actions"
       :align="actionsAlign"
     >
       <slot name="actions" />

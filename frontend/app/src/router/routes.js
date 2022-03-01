@@ -8,6 +8,7 @@ const routes = [
         name: 'Index',
         path: '/',
         component: () => import('pages/Index'),
+        redirect: { name: 'DdosConfig' },
       },
 
       /**
