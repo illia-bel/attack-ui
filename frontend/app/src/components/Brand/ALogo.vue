@@ -1,6 +1,6 @@
 <template>
   <!-- App Logo -->
-  <!-- {{ brandName }} -->
+  {{ brandName }}
 </template>
 
 <script setup>
