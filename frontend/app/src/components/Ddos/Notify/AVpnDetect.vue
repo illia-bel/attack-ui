@@ -74,7 +74,7 @@ const updateInfo = async () => {
     ...[
       {
         label: i18n('ipNotify.ipLabel'),
-        info: i18n('ipNotify.countryLabel'),
+        info: resp.ipAddress,
       },
       {
         label: 'IP Country',
