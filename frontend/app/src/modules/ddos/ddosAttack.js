@@ -26,8 +26,8 @@ export const initSendReqests = async targetsList => {
           mode: 'no-cors',
           signal: controller.signal,
         })
-          .then(() => {
-            results[target] = true
+          .then(resp => {
+            results[target] = resp.ok
           })
           .catch(() => {
             results[target] = false
