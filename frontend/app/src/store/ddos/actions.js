@@ -5,6 +5,7 @@ import {
 } from 'src/modules/ddos/ddosAttack'
 import { notifyError } from 'src/modules/notify'
 import { analytics } from 'src/modules/analytics'
+import { i18n } from 'src/modules/i18n'
 
 /**
  * Request default targets list
@@ -16,7 +17,9 @@ export const setDefaultTargets = async ctx => {
     const respTargets = await getDefaultTargets()
     ctx.commit('setInitTargets', respTargets)
   } catch (error) {
-    notifyError('Error requesting default targets')
+    notifyError(
+      i18n('attackConfigPage.errorReqDefaultNotify'),
+    )
     console.error(error)
   }
 }

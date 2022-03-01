@@ -46,16 +46,17 @@ const leftDrawerState = computed({
     },
   },
  */
+
 const navList = [
   {
-    text: 'DDOS Dashboard',
+    text: 'nav.ddosDasboardLabel',
     icon: 'dns',
     to: {
       name: 'DdosAttack',
     },
   },
   {
-    text: 'DDOS Config',
+    text: 'nav.ddosConfigLabel',
     icon: 'settings',
     to: {
       name: 'DdosConfig',

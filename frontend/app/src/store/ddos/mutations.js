@@ -1,7 +1,7 @@
 import { notifyPrimary } from 'src/modules/notify'
 import { validateTarget } from 'src/modules/ddos/ddosConfig'
 import { analytics } from 'src/modules/analytics'
-
+import { i18n } from 'src/modules/i18n'
 /**
  * Remove all items from targetsList
  */
@@ -30,9 +30,9 @@ export const setTarget = (state, { target, callback }) => {
   if (state.targetsList.indexOf(target) > 0) return
 
   // If target is invalid
-  if (!validateTarget(target)) return
+  if (!validateTarget(target, state.targetsList)) return
   state.targetsList.unshift(target)
-  notifyPrimary('Target added')
+  notifyPrimary(i18n('attackConfigPage.targetAddedNotify'))
 
   if (!callback) return
   callback()

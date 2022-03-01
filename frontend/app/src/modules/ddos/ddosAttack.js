@@ -1,4 +1,5 @@
 import { confirmDialog } from 'src/modules/dialog'
+import { i18n } from 'src/modules/i18n'
 
 /**
  * Send requests to targets
@@ -56,9 +57,14 @@ export const initSendReqests = async targetsList => {
  */
 export const startAttackNotify = () => {
   confirmDialog({
-    title: 'Attack started',
-    message:
-      'Until you press the "Stop" button or close the tab, the attack will be active. Startup may take up to 1 minute',
-    okLabel: 'Okey',
+    title: i18n(
+      'attackConfigPage.attackStartedDialog.title',
+    ),
+    message: i18n(
+      'attackConfigPage.attackStartedDialog.description',
+    ),
+    okLabel: i18n(
+      'attackConfigPage.attackStartedDialog.okBtnLabel',
+    ),
   })
 }
