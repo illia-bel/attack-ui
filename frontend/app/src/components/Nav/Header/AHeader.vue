@@ -15,9 +15,7 @@
       <q-separator vertical spaced="lg" />
       <a-locale-change color="white" />
       <q-separator vertical spaced="lg" />
-      <a
-        href="https://t.me/+fzOGM5TlgjE1ZGQ6"
-        target="_blank"
+      <a href="https://t.me/attack_ui_bot" target="_blank"
         >Support</a
       >
     </q-toolbar>
