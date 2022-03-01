@@ -1,6 +1,28 @@
 import { confirmDialog } from 'src/modules/dialog'
 import { i18n } from 'src/modules/i18n'
 
+const ignoreTargetsList = {}
+
+/**
+ *
+ * @param {String} target
+ */
+const confirmReqTarget = target => {
+  if (!ignoreTargetsList[target]) {
+    ignoreTargetsList[target] = {
+      error: 0,
+      success: 0,
+    }
+
+    return true
+  }
+
+  return !(
+    ignoreTargetsList[target]['success'] === 0 &&
+    ignoreTargetsList[target]['error'] > 30
+  )
+}
+
 /**
  * Send requests to targets
  * @param {Array} targetsList
@@ -10,9 +32,17 @@ export const initSendReqests = async targetsList => {
   return await new Promise((resolve, reject) => {
     const results = {}
 
+    // List of targets on which requests are heating up
+    const targetsListReqs = []
+
     for (let i = 0; i < targetsList.length; i++) {
       try {
         const target = targetsList[i]
+
+        if (!confirmReqTarget(target)) {
+          continue
+        }
+        targetsListReqs.push(target)
 
         // needed to interrupt the request
         const controller = new AbortController()
@@ -28,9 +58,12 @@ export const initSendReqests = async targetsList => {
         })
           .then(() => {
             results[target] = true
+            ignoreTargetsList[target].success++
           })
           .catch(() => {
             results[target] = false
+
+            ignoreTargetsList[target].error++
           })
           .finally(() => {
             clearTimeout(timeoutId)
@@ -38,7 +71,7 @@ export const initSendReqests = async targetsList => {
             // if this is not the last request - return
             if (
               Object.keys(results).length !==
-              targetsList.length
+              targetsListReqs.length
             ) {
               return
             }

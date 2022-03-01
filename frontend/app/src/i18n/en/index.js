@@ -18,6 +18,11 @@ export default {
       success: 'Success requests',
       errors: 'Errors count',
     },
+
+    totalResults: {
+      error: 'Errors',
+      success: 'Successful requests',
+    },
   },
 
   attackConfigPage: {

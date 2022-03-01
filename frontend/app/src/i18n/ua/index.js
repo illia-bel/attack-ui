@@ -21,6 +21,11 @@ export default {
       success: 'Успішних запитів',
       errors: 'Помилок',
     },
+
+    totalResults: {
+      error: 'Помилок',
+      success: 'Успішних запитів',
+    },
   },
 
   attackConfigPage: {

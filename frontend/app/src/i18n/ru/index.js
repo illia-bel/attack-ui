@@ -21,6 +21,11 @@ export default {
       success: 'Успешных запросов',
       errors: 'Ошибок',
     },
+
+    totalResults: {
+      error: 'Ошибок',
+      success: 'Успешных запросов',
+    },
   },
 
   attackConfigPage: {
