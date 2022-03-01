@@ -1,5 +1,8 @@
 <template>
-  <a-card class="col-12" title="DDOS Configuration">
+  <a-card
+    class="col-12"
+    :title="i18n('attackConfigPage.pageTitle')"
+  >
     <template #body>
       <a-vpn-detect />
     </template>
@@ -12,9 +15,13 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
+
 import ACard from 'src/components/Cards/ACard'
 import ADdosTargetCard from 'src/components/Ddos/DdosTarget/ADdosTargetCard'
 import ADdosConfigCard from 'src/components/Ddos/DdosConfig/ADdosConfigCard'
 import ADdosConfigFooter from 'src/components/Ddos/DdosConfig/ADdosConfigFooter'
 import AVpnDetect from 'src/components/Ddos/Notify/AVpnDetect'
+
+const { t: i18n } = useI18n()
 </script>

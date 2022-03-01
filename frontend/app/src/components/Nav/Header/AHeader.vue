@@ -12,12 +12,15 @@
       <q-toolbar-title>
         <a-logo />
       </q-toolbar-title>
+
+      <a-locale-change color="white" />
     </q-toolbar>
   </q-header>
 </template>
 
 <script setup>
 import ALogo from 'src/components/Brand/ALogo'
+import ALocaleChange from 'src/components/Nav/ALocaleChange'
 
 const props = defineProps({
   modelValue: Boolean,

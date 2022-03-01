@@ -8,8 +8,7 @@
     }"
   >
     <p v-if="showWarning" class="text-red text-bold">
-      Use VPN with Russian or Belarusian IP for more
-      effective attack
+      {{ i18n('ipNotify.title') }}
     </p>
     <ul class="ul-reset">
       <li v-for="({ label, info }, key) in ipInfo">
@@ -21,12 +20,13 @@
       <div class="flex column items-end">
         <q-btn
           @click="updateInfo"
-          label="Reload"
+          :label="i18n('ipNotify.reloadBtnLabel')"
           flat
           :loading="loadingData"
         />
-        <div class="text-grey">
-          Last updated at: {{ updatedAt }}
+        <div v-if="updatedAt" class="text-grey">
+          {{ i18n('ipNotify.updatedAtLabel') }}:
+          {{ updatedAt }}
         </div>
       </div>
     </template>
@@ -35,12 +35,20 @@
 
 <script setup>
 import { reactive, ref, onBeforeMount } from 'vue'
+import { useI18n } from 'vue-i18n'
+
 import { getIpAddress } from 'src/modules/user'
+
+const { t: i18n } = useI18n()
 
 const ipInfo = reactive([])
 const loadingData = ref(false)
-const dataIsLoaded = ref(false)
 const updatedAt = ref()
+
+// for sripner animation
+const dataIsLoaded = ref(false)
+
+// If there is an error with the request - hide notify
 const showWarning = ref(false)
 
 /**
@@ -65,8 +73,8 @@ const updateInfo = async () => {
   ipInfo.push(
     ...[
       {
-        label: 'Your IP',
-        info: resp.ipAddress,
+        label: i18n('ipNotify.ipLabel'),
+        info: i18n('ipNotify.countryLabel'),
       },
       {
         label: 'IP Country',

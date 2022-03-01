@@ -1,28 +1,37 @@
 <template>
-  <a-card title="Connections" class="col-12">
+  <a-card
+    :title="i18n('attackConfigPage.connectionsTitle')"
+    class="col-12"
+  >
     <template #body>
       <q-form class="row ddos-config-card">
         <q-input
           v-model="formData.reqCount"
-          label="Sites requests per second"
+          :label="
+            i18n('attackConfigPage.reqCountFieldLabel')
+          "
           type="number"
           class="col-12 col-md-6 q-pr-md"
-          hint="Recommended quantity - 100"
+          :hint="i18n('attackConfigPage.reqCountFieldHint')"
         />
         <q-input
           v-model="formData.streamsCount"
-          label="Streams count"
+          :label="
+            i18n('attackConfigPage.streamsCountLabel')
+          "
           type="number"
           class="col-12 col-md-6 q-pl-md"
           disable
-          hint="In development"
+          :hint="i18n('attackConfigPage.streamsCountHint')"
         />
       </q-form>
     </template>
     <template #actions>
       <q-btn
         @click="resetDdosConfig"
-        label="Reset"
+        :label="
+          i18n('attackConfigPage.resetConfigBtnLabel')
+        "
         color="red"
         flat
       />
@@ -33,9 +42,11 @@
 <script setup>
 import { reactive, onBeforeMount, watch } from 'vue'
 import { useStore } from 'vuex'
+import { useI18n } from 'vue-i18n'
 
 import ACard from 'src/components/Cards/ACard'
 
+const { t: i18n } = useI18n()
 const store = useStore()
 
 const formData = reactive({

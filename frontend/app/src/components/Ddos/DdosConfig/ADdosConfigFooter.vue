@@ -2,7 +2,9 @@
   <a-card class="col-12">
     <template #actions>
       <q-btn
-        label="start attack"
+        :label="
+          i18n('attackConfigPage.startAttackBtnLabel')
+        "
         @click="startAttack"
         color="primary"
       />
@@ -13,9 +15,10 @@
 <script setup>
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
-
+import { useI18n } from 'vue-i18n'
 import ACard from 'src/components/Cards/ACard'
 
+const { t: i18n } = useI18n()
 const store = useStore()
 const router = useRouter()
 const startAttack = () => {

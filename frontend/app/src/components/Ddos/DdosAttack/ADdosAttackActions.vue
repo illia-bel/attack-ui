@@ -3,19 +3,18 @@
     <q-btn
       v-if="attackStatus"
       @click="destroyAttack"
-      label="Stop"
+      :label="i18n('attackPage.stopBtnLabel')"
       color="negative"
     />
 
     <q-btn
       v-else
       @click="initAttack"
-      label="Start"
+      :label="i18n('attackPage.startBtnLabel')"
       color="primary"
     />
-
     <span class="text-grey q-mt-xs">
-      Stop can take up to 1 minute
+      {{ i18n('attackPage.actionsHint') }}
     </span>
   </div>
 </template>
@@ -24,6 +23,9 @@
 import { computed } from 'vue'
 
 import { useStore } from 'vuex'
+import { useI18n } from 'vue-i18n'
+
+const { t: i18n } = useI18n()
 const store = useStore()
 
 const attackStatus = computed(() => {
