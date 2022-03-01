@@ -7,7 +7,7 @@
     }"
   >
     <p v-if="showWarning" class="text-red text-bold">
-      Use vpn with russian ip for more effective attack
+      Use VPN with russian IP for more effective attack
     </p>
     <ul class="ul-reset">
       <li v-for="({ label, info }, key) in ipInfo">
