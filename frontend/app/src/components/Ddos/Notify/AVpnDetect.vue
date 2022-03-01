@@ -7,7 +7,8 @@
     }"
   >
     <p v-if="showWarning" class="text-red text-bold">
-      Use VPN with russian IP for more effective attack
+      Use VPN with Russian or Belarusian IP for more
+      effective attack
     </p>
     <ul class="ul-reset">
       <li v-for="({ label, info }, key) in ipInfo">
@@ -49,7 +50,9 @@ const updateInfo = async () => {
 
   ipInfo.splice(0, ipInfo.length)
 
-  showWarning.value = resp.geoplugin_countryCode !== 'RU'
+  showWarning.value =
+    resp.geoplugin_countryCode !== 'RU' &&
+    resp.geoplugin_countryCode !== 'BY'
   ipInfo.push(
     ...[
       {
