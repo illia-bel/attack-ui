@@ -85,6 +85,9 @@ const resetDdosConfig = () => {
 @media screen and (max-width: 920px) {
   .ddos-config-card .q-field {
     padding: 0;
+    &:not(:first-child) {
+      margin-top: 16px;
+    }
   }
 }
 </style>

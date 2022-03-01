@@ -1,19 +1,19 @@
 <template>
   <q-form
     @submit="initSetTarget"
-    class="row items-baseline full-width"
+    class="new-taget-form row items-center full-width"
   >
     <q-input
       v-model="target"
       :label="i18n('attackConfigPage.addTargetFieldLabel')"
       autofocus
       stack-label
-      class="col-8 col-md-4"
+      class="col-xs-12 col-md-4"
     />
     <q-btn
       :label="i18n('attackConfigPage.addTargetBtnLabel')"
       color="primary"
-      class="q-ml-lg"
+      class="q-ml-lg add-btn"
       type="submit"
     />
   </q-form>
@@ -39,4 +39,10 @@ const initSetTarget = () => {
 }
 </script>
 
-<style lang="scss" scouped></style>
+<style lang="scss" scouped>
+@media screen and (max-width: 920px) {
+  .add-btn {
+    margin: 16px 0 0 0;
+  }
+}
+</style>
