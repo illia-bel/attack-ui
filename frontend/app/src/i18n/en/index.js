@@ -6,8 +6,11 @@ export default {
     pageTitle: 'DDOS Dashboard',
     stopBtnLabel: 'Stop',
     actionsHint: 'Stop/Start can take up to 1 minute',
+
     startBtnLabel: 'Start',
     statusTitle: 'Status',
+    ddosAttackConfigureBtnLabel: 'Attack setting',
+
     attackActiveStatusLabel: 'Active',
     attackStoppedStatusLabel: 'Stopped',
 

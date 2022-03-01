@@ -32,6 +32,11 @@ export const initBrowserAttack = ctx => {
 
   const config = ctx.getters.getDdosConfig.user
   const targets = ctx.getters.getTargetsList
+
+  if (targets.length === 0) {
+    return
+  }
+
   const lastIntervalId =
     ctx.getters.getBrowserAttackIntervalId
 
@@ -49,9 +54,23 @@ export const initBrowserAttack = ctx => {
     const to = from + config.reqCount
     lastIndex = to
 
+    // Array with targets for request
+    const targetsListForReq = targets.slice(from, to)
+
+    // If there are fewer elements in the array than specified in the config, we duplicate the existing ones
+    // TODO There is a problem with the counting logic
+    // if (targetsListForReq.length < config.reqCount) {
+    //   targetsListForReq.push(
+    //     ...targetsListForReq.slice(
+    //       0,
+    //       config.reqCount - targetsListForReq.length,
+    //     ),
+    //   )
+    // }
+
     // Send requests array
     const respList = await initSendReqests(
-      targets.slice(from, to),
+      targetsListForReq,
     )
 
     // write reqs resultst to store

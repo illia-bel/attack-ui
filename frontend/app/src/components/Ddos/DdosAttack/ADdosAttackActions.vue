@@ -1,21 +1,32 @@
 <template>
   <div class="row column items-end">
-    <q-btn
-      v-if="attackStatus"
-      @click="destroyAttack"
-      :label="i18n('attackPage.stopBtnLabel')"
-      color="negative"
-    />
+    <template v-if="showActions">
+      <q-btn
+        v-if="attackStatus"
+        @click="destroyAttack"
+        :label="i18n('attackPage.stopBtnLabel')"
+        color="negative"
+      />
+
+      <q-btn
+        v-else
+        @click="initAttack"
+        :label="i18n('attackPage.startBtnLabel')"
+        color="primary"
+      />
+      <span class="text-grey q-mt-xs">
+        {{ i18n('attackPage.actionsHint') }}
+      </span>
+    </template>
 
     <q-btn
       v-else
-      @click="initAttack"
-      :label="i18n('attackPage.startBtnLabel')"
+      :to="{ name: 'DdosConfig' }"
+      :label="
+        i18n('attackPage.ddosAttackConfigureBtnLabel')
+      "
       color="primary"
     />
-    <span class="text-grey q-mt-xs">
-      {{ i18n('attackPage.actionsHint') }}
-    </span>
   </div>
 </template>
 
@@ -30,6 +41,9 @@ const store = useStore()
 
 const attackStatus = computed(() => {
   return store.getters['ddos/getBrowserAttackStatus']
+})
+const showActions = computed(() => {
+  return store.getters['ddos/getTargetsList'].length > 0
 })
 
 const destroyAttack = () => {
