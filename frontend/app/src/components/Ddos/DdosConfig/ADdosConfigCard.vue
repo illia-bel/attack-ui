@@ -7,6 +7,7 @@
           label="Sites requests per second"
           type="number"
           class="col-12 col-md-6 q-pr-md"
+          hint="Recommended quantity - 100"
         />
         <q-input
           v-model="formData.streamsCount"
