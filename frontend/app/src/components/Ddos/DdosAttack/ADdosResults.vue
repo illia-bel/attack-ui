@@ -41,6 +41,7 @@ const columns = [
     label: i18n('attackPage.table.success'),
     align: 'left',
     field: 'success',
+    sortable: true,
   },
   {
     name: 'errors',
@@ -48,6 +49,7 @@ const columns = [
     label: i18n('attackPage.table.errors'),
     align: 'left',
     field: 'error',
+    sortable: true,
   },
 ]
 </script>
