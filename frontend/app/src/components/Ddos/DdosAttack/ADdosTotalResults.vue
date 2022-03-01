@@ -1,12 +1,12 @@
 <template>
   <div class="row">
-    <div class="q-pa-sm bg-green-1">
+    <div class="q-pa-sm bg-green-1 q-mr-md q-mt-md">
       <b class="text-positive"
         >{{ i18n('attackPage.totalResults.success') }}:</b
       >
       {{ commonResults.success }}
     </div>
-    <div class="q-ml-md q-pa-sm bg-red-1">
+    <div class="q-pa-sm bg-red-1 q-mt-md">
       <b class="text-negative"
         >{{ i18n('attackPage.totalResults.error') }}:</b
       >
