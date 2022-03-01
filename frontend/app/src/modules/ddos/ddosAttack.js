@@ -1,3 +1,5 @@
+import { confirmDialog } from 'src/modules/dialog'
+
 /**
  * Send requests to targets
  * @param {Array} targetsList
@@ -46,5 +48,17 @@ export const initSendReqests = async targetsList => {
         console.error(error)
       }
     }
+  })
+}
+
+/**
+ * Dialod window with notification of the start of the attack
+ */
+export const startAttackNotify = () => {
+  confirmDialog({
+    title: 'Attack started',
+    message:
+      'Until you press the "Stop" button or close the tab, the attack will be active',
+    okLabel: 'Okey',
   })
 }

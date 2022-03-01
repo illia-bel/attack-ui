@@ -16,7 +16,7 @@ export const confirmDialog = async ({
     Dialog.create({
       title,
       message,
-      cancel: true,
+      cancel: !!cancelLabel,
 
       ok: {
         label: okLabel,
