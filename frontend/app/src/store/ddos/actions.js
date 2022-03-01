@@ -4,6 +4,7 @@ import {
   startAttackNotify,
 } from 'src/modules/ddos/ddosAttack'
 import { notifyError } from 'src/modules/notify'
+import { analytics } from 'src/modules/analytics'
 
 /**
  * Request default targets list
@@ -24,6 +25,8 @@ export const setDefaultTargets = async ctx => {
  * Init browser attack ctx
  */
 export const initBrowserAttack = ctx => {
+  analytics.track('init-browser-ddos')
+
   const config = ctx.getters.getDdosConfig.user
   const targets = ctx.getters.getTargetsList
   const lastIntervalId =
@@ -67,6 +70,7 @@ export const initBrowserAttack = ctx => {
  * Destroy browser attack
  */
 export const destroyBrowserAttack = ctx => {
+  analytics.track('destroy-browser-ddos')
   const reqIntevalId =
     ctx.getters.getBrowserAttackIntervalId
 
