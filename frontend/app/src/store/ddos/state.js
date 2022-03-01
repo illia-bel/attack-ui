@@ -5,7 +5,7 @@ export default function () {
       user: {},
       default: {
         reqCount: 100, // per sec
-        intervalLength: 1000, // ms
+        intervalLength: 300, // ms
       },
     },
 
