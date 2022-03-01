@@ -1,14 +1,14 @@
 import { boot } from 'quasar/wrappers'
 import { createI18n } from 'vue-i18n'
 import messages from 'src/i18n'
-import i18n from 'src/i18n'
+import i18nLocales from 'src/i18n'
 
 let userLang =
   localStorage.getItem('lang') ||
   navigator.language ||
   navigator.userLanguage
 
-if (Object.keys(i18n).indexOf(userLang) === -1) {
+if (Object.keys(i18nLocales).indexOf(userLang) === -1) {
   userLang = 'en'
 }
 
