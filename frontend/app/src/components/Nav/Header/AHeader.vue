@@ -12,8 +12,14 @@
       <q-toolbar-title>
         <a-logo />
       </q-toolbar-title>
-
+      <q-separator vertical spaced="lg" />
       <a-locale-change color="white" />
+      <q-separator vertical spaced="lg" />
+      <a
+        href="https://t.me/+fzOGM5TlgjE1ZGQ6"
+        target="_blank"
+        >Support</a
+      >
     </q-toolbar>
   </q-header>
 </template>
