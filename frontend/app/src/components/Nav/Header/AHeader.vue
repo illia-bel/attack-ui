@@ -12,6 +12,12 @@
       <q-toolbar-title>
         <a-logo />
       </q-toolbar-title>
+
+      <a
+        href="https://github.com/ilya-belik/attack-ui/"
+        target="_blank"
+        >GitHub</a
+      >
     </q-toolbar>
   </q-header>
 </template>
