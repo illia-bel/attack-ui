@@ -26,10 +26,9 @@ export const setDefaultTargets = async ctx => {
 export const initBrowserAttack = ctx => {
   const config = ctx.getters.getDdosConfig.user
   const targets = ctx.getters.getTargetsList
+  const lastIntervalId =
+    ctx.getters.getBrowserAttackIntervalId
 
-  if (!ctx.getters.getBrowserAttackIntervalId) {
-    startAttackNotify()
-  }
   // Change attack status to active
   ctx.commit('setBrowserAttackStatus', true)
 
@@ -55,6 +54,13 @@ export const initBrowserAttack = ctx => {
 
   // set setInterval id ti store
   ctx.commit('setBrowserAttackIntervalId', reqInterval)
+
+  if (!lastIntervalId) {
+    // TODO fix this (req startAttackNotify before header mounted)
+    setTimeout(() => {
+      startAttackNotify()
+    }, 1000)
+  }
 }
 
 /**
