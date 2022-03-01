@@ -1,5 +1,8 @@
 import { getDefaultTargets } from 'src/modules/api'
-import { initSendReqests } from 'src/modules/ddos/ddosAttack'
+import {
+  initSendReqests,
+  startAttackNotify,
+} from 'src/modules/ddos/ddosAttack'
 import { notifyError } from 'src/modules/notify'
 
 /**
@@ -24,6 +27,9 @@ export const initBrowserAttack = ctx => {
   const config = ctx.getters.getDdosConfig.user
   const targets = ctx.getters.getTargetsList
 
+  if (!ctx.getters.getBrowserAttackIntervalId) {
+    startAttackNotify()
+  }
   // Change attack status to active
   ctx.commit('setBrowserAttackStatus', true)
 

@@ -77,7 +77,7 @@ module.exports = configure(function (ctx) {
       env,
 
       // transpile: false,
-      publicPath: 'attack-ui/',
+      publicPath: '',
 
       // Add dependencies for transpiling with Babel (Array of string/regex)
       // (from node_modules, which are by default not transpiled).
