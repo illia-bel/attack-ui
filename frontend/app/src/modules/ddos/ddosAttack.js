@@ -58,7 +58,7 @@ export const startAttackNotify = () => {
   confirmDialog({
     title: 'Attack started',
     message:
-      'Until you press the "Stop" button or close the tab, the attack will be active',
+      'Until you press the "Stop" button or close the tab, the attack will be active. Startup may take up to 1 minute',
     okLabel: 'Okey',
   })
 }
