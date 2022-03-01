@@ -38,6 +38,7 @@ import { getIpAddress } from 'src/modules/user'
 
 const ipInfo = reactive([])
 const loadingData = ref(false)
+const dataIsLoaded = ref(false)
 const updatedAt = ref()
 const showWarning = ref(false)
 
@@ -49,6 +50,14 @@ const updateInfo = async () => {
   const resp = await getIpAddress()
 
   ipInfo.splice(0, ipInfo.length)
+
+  if (!resp.geoplugin_countryCode) {
+    dataIsLoaded.value = false
+    loadingData.value = false
+    return
+  } else {
+    dataIsLoaded.value = true
+  }
 
   showWarning.value =
     resp.geoplugin_countryCode !== 'RU' &&
