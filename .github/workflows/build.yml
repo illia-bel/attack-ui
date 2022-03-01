@@ -1,35 +1,35 @@
-name: Generate a build and push to branch "Build"
+# name: Generate a build and push to branch "Build"
 
-on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - .gitignore
-      - .prettierrc.json
-      - '**.md'
-      - '**.lock'
-      - .prettierignore
-      - .gitattributes
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    name: Build and Push
-    steps:
-      - name: Git Checkout
-        uses: actions/checkout@v2
+# on:
+#   push:
+#     branches:
+#       - main
+#     paths-ignore:
+#       - .gitignore
+#       - .prettierrc.json
+#       - '**.md'
+#       - '**.lock'
+#       - .prettierignore
+#       - .gitattributes
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     name: Build and Push
+#     steps:
+#       - name: Git Checkout
+#         uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: yarn install
+#       - name: Install dependencies
+#         run: yarn install
 
-      - name: Build
-        run: yarn workspace attack-ui-app build # Build project
+#       - name: Build
+#         run: yarn workspace attack-ui-app build # Build project
 
-      - name: Push
-        uses: s0/git-publish-subdir-action@develop
-        env:
-          REPO: self
-          BRANCH: build
-          FOLDER: frontend/app/dist/spa
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MESSAGE: 'Build: ({sha}) {msg}' # The commit message
+#       - name: Push
+#         uses: s0/git-publish-subdir-action@develop
+#         env:
+#           REPO: self
+#           BRANCH: build
+#           FOLDER: frontend/app/dist/spa
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#           MESSAGE: 'Build: ({sha}) {msg}' # The commit message
