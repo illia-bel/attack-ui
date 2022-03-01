@@ -15,14 +15,15 @@
           :hint="i18n('attackConfigPage.reqCountFieldHint')"
         />
         <q-input
-          v-model="formData.streamsCount"
+          v-model="formData.intervalLength"
           :label="
-            i18n('attackConfigPage.streamsCountLabel')
+            i18n('attackConfigPage.intervalTimeFieldLabel')
           "
           type="number"
           class="col-12 col-md-6 q-pl-md"
-          disable
-          :hint="i18n('attackConfigPage.streamsCountHint')"
+          :hint="
+            i18n('attackConfigPage.intervalTimeFieldHint')
+          "
         />
       </q-form>
     </template>
@@ -51,7 +52,7 @@ const store = useStore()
 
 const formData = reactive({
   reqCount: 0,
-  streamsCount: 0,
+  intervalLength: 0,
 })
 
 const updateConfig = () => {
@@ -61,17 +62,18 @@ const updateConfig = () => {
   formData.reqCount =
     userConfig.reqCount || defaultConfig.reqCount
 
-  formData.streamsCount =
-    userConfig.streamsCount || defaultConfig.streamsCount
+  formData.intervalLength =
+    userConfig.intervalLength ||
+    defaultConfig.intervalLength
 }
 
 onBeforeMount(updateConfig)
 
-watch(formData, ({ reqCount, streamsCount }) => {
-  if (!reqCount || !streamsCount) return
+watch(formData, ({ reqCount, intervalLength }) => {
+  if (!reqCount || !intervalLength) return
   store.commit('ddos/setDdosConfig', {
     reqCount,
-    streamsCount,
+    intervalLength,
   })
 })
 
