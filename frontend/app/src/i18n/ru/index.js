@@ -4,7 +4,7 @@
 export default {
   attackPage: {
     pageTitle: 'Панель управления DDOS',
-    stopBtnLabel: 'Остановаить',
+    stopBtnLabel: 'Остановить',
     startBtnLabel: 'Начать',
 
     actionsHint:

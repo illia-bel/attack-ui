@@ -36,6 +36,7 @@ const { locale, t: i18n } = useI18n({
 })
 
 const localeOptions = [
+  { value: 'ua', label: 'Українська' },
   { value: 'ru', label: 'Русский' },
   { value: 'en', label: 'English' },
 ]
