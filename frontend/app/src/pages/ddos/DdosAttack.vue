@@ -1,6 +1,6 @@
 <template>
   <a-ddos-attack-header />
-  <a-ddos-results />
+  <a-ddos-results-table />
 </template>
 
 <script setup>
@@ -8,7 +8,7 @@ import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 
 import ADdosAttackHeader from 'src/components/Ddos/DdosAttack/ADdosAttackHeader'
-import ADdosResults from 'src/components/Ddos/DdosAttack/ADdosResults'
+import ADdosResultsTable from 'src/components/Ddos/DdosAttack/ADdosResultsTable'
 
 const store = useStore()
 

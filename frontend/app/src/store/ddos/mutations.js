@@ -67,6 +67,17 @@ export const resetDdosConfig = state => {
 }
 
 /**
+ * Set common result browser attack
+ * @param {String} type success, error
+ */
+export const setCommonResultsBrowserAttack = (
+  state,
+  type,
+) => {
+  state.commonResultsBrowserAttack[type]++
+}
+
+/**
  *
  * @param {Array} data
  * {
@@ -85,8 +96,14 @@ export const setResultsBrowserAttack = (state, data) => {
       }
     }
 
+    /**
+     * target - bool in arg data true - success/ false - error
+     */
+    const reqResultType = data[target] ? 'success' : 'error'
     // Add statistics count
-    results[target][data[target] ? 'success' : 'error']++
+    results[target][reqResultType]++
+
+    setCommonResultsBrowserAttack(state, reqResultType)
   }
 }
 

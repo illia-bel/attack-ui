@@ -16,6 +16,10 @@ export default function () {
       }
     */
     resultsBrowserAttack: {},
+    commonResultsBrowserAttack: {
+      success: 0,
+      error: 0,
+    },
     browserAttackStatus: false,
     browserAttackIntervalId: null,
   }

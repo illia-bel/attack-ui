@@ -45,3 +45,10 @@ export const getBrowserAttackResults = state => {
 export const getBrowserAttackIntervalId = state => {
   return state.browserAttackIntervalId
 }
+
+/**
+ * @returns {Object}
+ */
+export const getCommonResultsBrowserAttack = state => {
+  return state.commonResultsBrowserAttack
+}

@@ -4,11 +4,13 @@
     class="col-12"
   >
     <template #body>
+      <a-ddos-total-results />
       <q-table
         :rows="resultsList"
         :columns="columns"
         flat
         :pagination="{ rowsPerPage: 30 }"
+        class="q-mt-sm"
       />
     </template>
   </a-card>
@@ -19,6 +21,7 @@ import { computed } from 'vue'
 import { useStore } from 'vuex'
 import { useI18n } from 'vue-i18n'
 import ACard from 'src/components/Cards/ACard'
+import ADdosTotalResults from 'src/components/Ddos/DdosAttack/ADdosTotalResults'
 
 const { t: i18n } = useI18n()
 const store = useStore()
