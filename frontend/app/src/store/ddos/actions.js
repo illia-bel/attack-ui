@@ -49,6 +49,8 @@ export const initBrowserAttack = ctx => {
   // Create setInterval
   const reqInterval = setInterval(
     async () => {
+      if (!ctx.getters.getBrowserAttackStatus) return
+
       // Generate from/to for user param reqCount
       const from =
         lastIndex >= targets.length ? 0 : lastIndex + 1
@@ -72,6 +74,7 @@ export const initBrowserAttack = ctx => {
       // Send requests array
       const respList = await initSendReqests(
         targetsListForReq,
+        ctx,
       )
 
       // write reqs resultst to store

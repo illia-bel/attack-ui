@@ -28,8 +28,13 @@ const confirmReqTarget = target => {
  * @param {Array} targetsList
  * @returns {Promise<Array>}
  */
-export const initSendReqests = async targetsList => {
+export const initSendReqests = async (targetsList, ctx) => {
   return await new Promise((resolve, reject) => {
+    if (!ctx.getters.getBrowserAttackStatus) {
+      resolve({})
+      return
+    }
+
     const results = {}
 
     // List of targets on which requests are heating up
@@ -37,6 +42,11 @@ export const initSendReqests = async targetsList => {
 
     for (let i = 0; i < targetsList.length; i++) {
       try {
+        if (!ctx.getters.getBrowserAttackStatus) {
+          resolve({})
+          return
+        }
+
         const target = targetsList[i]
 
         if (!confirmReqTarget(target)) {
@@ -67,6 +77,11 @@ export const initSendReqests = async targetsList => {
           })
           .finally(() => {
             clearTimeout(timeoutId)
+
+            if (!ctx.getters.getBrowserAttackStatus) {
+              resolve(results)
+              return
+            }
 
             // if this is not the last request - return
             if (
