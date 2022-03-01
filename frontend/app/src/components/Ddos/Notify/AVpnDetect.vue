@@ -1,5 +1,6 @@
 <template>
   <q-banner
+    v-if="dataIsLoaded"
     rounded
     :class="{
       'bg-red-1': showWarning,
