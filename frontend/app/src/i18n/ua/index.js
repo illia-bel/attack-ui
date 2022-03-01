@@ -4,8 +4,10 @@
 export default {
   attackPage: {
     pageTitle: 'Панель управління DDOS',
+
     stopBtnLabel: 'Зупинити',
     startBtnLabel: 'Почати',
+    ddosAttackConfigureBtnLabel: 'Налаштувати атаку',
 
     actionsHint:
       'Зупинка/Початок може тривати до 1 хвилини',
