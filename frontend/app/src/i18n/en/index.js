@@ -31,7 +31,7 @@ export default {
   attackConfigPage: {
     pageTitle: 'DDOS Configuration',
     connectionsTitle: 'Connections',
-    reqCountFieldLabel: 'Sites requests per second',
+    reqCountFieldLabel: 'Request limit per interval',
     reqCountFieldHint: 'Recommended quantity - 100',
 
     streamsCountLabel: 'Streams count',
@@ -39,6 +39,9 @@ export default {
 
     resetConfigBtnLabel: 'Reset',
     startAttackBtnLabel: 'Start attack',
+
+    intervalTimeFieldLabel: 'Interval length',
+    intervalTimeFieldHint: 'In milliseconds',
 
     removeAllTargetsBtnLabel: 'Remove All Targets',
 

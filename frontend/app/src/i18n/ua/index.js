@@ -33,11 +33,14 @@ export default {
   attackConfigPage: {
     pageTitle: 'Налаштування DDOS',
     connectionsTitle: 'Запити',
-    reqCountFieldLabel: 'Запитів до сайту за секунду',
+    reqCountFieldLabel: 'Ліміт запитів за інтервал',
     reqCountFieldHint: 'Рекомендована кількість - 100',
 
     streamsCountLabel: 'Кількість потоків',
     streamsCountHint: 'У розробці',
+
+    intervalTimeFieldLabel: 'Довжина інтервалу',
+    intervalTimeFieldHint: 'У мілісекундах',
 
     resetConfigBtnLabel: 'Відновити за замовчуванням',
     startAttackBtnLabel: 'Почати атаку',

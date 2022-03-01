@@ -33,7 +33,7 @@ export default {
   attackConfigPage: {
     pageTitle: 'Настройка DDOS',
     connectionsTitle: 'Запросы',
-    reqCountFieldLabel: 'Запросов к  сайту в секунду',
+    reqCountFieldLabel: 'Лимит запросов за интервал',
     reqCountFieldHint: 'Рекомендуемое количество - 100',
 
     streamsCountLabel: 'Количство потоков',
@@ -41,6 +41,9 @@ export default {
 
     resetConfigBtnLabel: 'Восстановить по умолчанию',
     startAttackBtnLabel: 'Начать атаку',
+
+    intervalTimeFieldLabel: 'Длина интервала',
+    intervalTimeFieldHint: 'В миллисекундах',
 
     removeAllTargetsBtnLabel: 'Удалить все цели',
 

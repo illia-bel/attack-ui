@@ -47,35 +47,40 @@ export const initBrowserAttack = ctx => {
   let lastIndex = 0
 
   // Create setInterval
-  const reqInterval = setInterval(async () => {
-    // Generate from/to for user param reqCount
-    const from =
-      lastIndex >= targets.length ? 0 : lastIndex + 1
-    const to = from + config.reqCount
-    lastIndex = to
+  const reqInterval = setInterval(
+    async () => {
+      // Generate from/to for user param reqCount
+      const from =
+        lastIndex >= targets.length ? 0 : lastIndex + 1
+      const to = from + config.reqCount
+      lastIndex = to
 
-    // Array with targets for request
-    const targetsListForReq = targets.slice(from, to)
+      // Array with targets for request
+      const targetsListForReq = targets.slice(from, to)
 
-    // If there are fewer elements in the array than specified in the config, we duplicate the existing ones
-    // TODO There is a problem with the counting logic
-    // if (targetsListForReq.length < config.reqCount) {
-    //   targetsListForReq.push(
-    //     ...targetsListForReq.slice(
-    //       0,
-    //       config.reqCount - targetsListForReq.length,
-    //     ),
-    //   )
-    // }
+      // If there are fewer elements in the array than specified in the config, we duplicate the existing ones
+      // TODO There is a problem with the counting logic
+      // if (targetsListForReq.length < config.reqCount) {
+      //   targetsListForReq.push(
+      //     ...targetsListForReq.slice(
+      //       0,
+      //       config.reqCount - targetsListForReq.length,
+      //     ),
+      //   )
+      // }
 
-    // Send requests array
-    const respList = await initSendReqests(
-      targetsListForReq,
-    )
+      // Send requests array
+      const respList = await initSendReqests(
+        targetsListForReq,
+      )
 
-    // write reqs resultst to store
-    ctx.commit('setResultsBrowserAttack', respList)
-  }, 1000)
+      // write reqs resultst to store
+      ctx.commit('setResultsBrowserAttack', respList)
+    },
+    Number(config.intervalLength)
+      ? Number(config.intervalLength)
+      : 1000,
+  )
 
   // set setInterval id ti store
   ctx.commit('setBrowserAttackIntervalId', reqInterval)
