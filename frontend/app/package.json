@@ -11,9 +11,7 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@analytics/google-analytics": "^0.5.3",
     "@quasar/extras": "^1.0.0",
-    "analytics": "^0.8.0",
     "core-js": "^3.6.5",
     "install": "^0.13.0",
     "npm": "^8.5.2",
