@@ -12,15 +12,44 @@ const confirmReqTarget = target => {
     ignoreTargetsList[target] = {
       error: 0,
       success: 0,
+      unconfirmCount: 0,
     }
 
     return true
   }
 
-  return !(
+  const confirmResult = !(
     ignoreTargetsList[target]['success'] === 0 &&
     ignoreTargetsList[target]['error'] > 30
   )
+
+  // Если количсво отклоненных запросов больше чем resetErrorsCount
+  // сбрасываем все ошбки до 0 для конкретной цели
+  // нужно для того что бы если цель какое время не активно, а потом появляется в сети - начать ее dos-ить снова
+
+  // Число отклоненных запросов после которого сбрасываем счетчик ошибок
+  const resetErrorsCount = 200
+
+  // Если запрос отклонен и unconfirmCount не превышает resetErrorsCount
+  if (
+    !confirmResult &&
+    ignoreTargetsList[target].unconfirmCount <=
+      resetErrorsCount
+  ) {
+    ignoreTargetsList[target].unconfirmCount++
+  }
+
+  // Если запрос отклонен и unconfirmCount превышает resetErrorsCount
+  else if (
+    !confirmResult &&
+    ignoreTargetsList[target].unconfirmCount >
+      resetErrorsCount
+  ) {
+    ignoreTargetsList[target].error = 0
+    confirmResult = true
+  }
+
+  return confirmResult
 }
 
 /**
@@ -30,6 +59,7 @@ const confirmReqTarget = target => {
  */
 export const initSendReqests = async (targetsList, ctx) => {
   return await new Promise((resolve, reject) => {
+    // if user stopped attach
     if (!ctx.getters.getBrowserAttackStatus) {
       resolve({})
       return
