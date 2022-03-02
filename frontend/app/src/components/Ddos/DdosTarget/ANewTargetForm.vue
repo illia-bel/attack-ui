@@ -12,8 +12,7 @@
     />
     <q-btn
       :label="i18n('attackConfigPage.addTargetBtnLabel')"
-      color="primary"
-      class="q-ml-lg add-btn"
+      class="q-ml-lg add-btn bg-blue-1 text-primary"
       type="submit"
     />
   </q-form>
