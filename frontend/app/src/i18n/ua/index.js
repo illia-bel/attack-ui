@@ -3,7 +3,7 @@
 
 export default {
   attackPage: {
-    pageTitle: 'Панель управління DDOS',
+    pageTitle: 'Панель керування DDOS',
 
     stopBtnLabel: 'Зупинити',
     startBtnLabel: 'Почати',
