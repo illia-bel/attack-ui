@@ -6,6 +6,13 @@
     <template #body>
       <a-vpn-detect />
     </template>
+    <template #actions>
+      <a-dods-start-attack-btn
+        :label="
+          i18n('attackConfigPage.startAttackBtnLabel')
+        "
+      />
+    </template>
   </a-card>
 
   <a-ddos-target-card />
@@ -22,6 +29,7 @@ import ADdosTargetCard from 'src/components/Ddos/DdosTarget/ADdosTargetCard'
 import ADdosConfigCard from 'src/components/Ddos/DdosConfig/ADdosConfigCard'
 import ADdosConfigFooter from 'src/components/Ddos/DdosConfig/ADdosConfigFooter'
 import AVpnDetect from 'src/components/Ddos/Notify/AVpnDetect'
+import ADodsStartAttackBtn from 'src/components/Ddos/DdosConfig/ADodsStartAttackBtn'
 
 const { t: i18n } = useI18n()
 </script>
