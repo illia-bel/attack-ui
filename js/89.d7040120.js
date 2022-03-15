@@ -1,0 +1,1 @@
+"use strict";(self["webpackChunkattack_ui_app"]=self["webpackChunkattack_ui_app"]||[]).push([[89],{7089:(t,e,p)=>{p.r(e),p.d(e,{default:()=>u});const s={props:{},emits:[],setup(t,{emit:e}){return(t,e)=>"DdosDock"}},a=s,u=a}}]);
