@@ -88,4 +88,10 @@ export default {
     reloadBtnLabel: 'Оновити',
     updatedAtLabel: 'Останнє оновлення',
   },
+
+  denialOfResponsibilityWarning: {
+    message:
+      'Цей проект повинен використовуватися тільки для тестування або освітніх цілей',
+    okBtnLabel: 'Ок',
+  },
 }

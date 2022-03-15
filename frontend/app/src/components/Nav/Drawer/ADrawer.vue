@@ -7,12 +7,14 @@
     bordered
   >
     <a-nav-list :list="navList" />
+    <a-denial-of-responsibility-notify class="q-mt-lg" />
   </q-drawer>
 </template>
 
 <script setup>
 import { computed } from 'vue'
 import ANavList from 'src/components/Nav/Drawer/ANavList'
+import ADenialOfResponsibilityNotify from 'src/components/Notify/ADenialOfResponsibilityNotify'
 
 const props = defineProps({
   modelValue: Boolean,
