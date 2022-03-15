@@ -22,14 +22,12 @@ const fetchVersion = async () => {
   }
 }
 
-const updateAppConfirmDialog = async () => {
+const updateAppConfirmDialog = async newVersion => {
   if (updateNotifyShow) return
   updateNotifyShow = true
 
   const resp = await confirmDialog({
-    title:
-      i18n('updatesNotify.title') +
-      ` ${process.env.VERSION}`,
+    title: i18n('updatesNotify.title') + ` ${newVersion}`,
     message: i18n('updatesNotify.message'),
     okLabel: i18n('updatesNotify.okBtnLabel'),
     cancelLabel: i18n('updatesNotify.cancelBtnLabel'),
@@ -50,6 +48,6 @@ export default boot(({ app }) => {
     if (fetchedVersion === process.env.VERSION) {
       return
     }
-    updateAppConfirmDialog()
+    updateAppConfirmDialog(fetchedVersion)
   }, 5 * 1000)
 })
