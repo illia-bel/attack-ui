@@ -86,4 +86,10 @@ export default {
     reloadBtnLabel: 'Reload',
     updatedAtLabel: 'Last updated at',
   },
+
+  denialOfResponsibilityWarning: {
+    message:
+      'This project should only be used for testing or educational purposes',
+    okBtnLabel: 'Ok',
+  },
 }

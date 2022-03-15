@@ -89,4 +89,10 @@ export default {
     reloadBtnLabel: 'Обновить',
     updatedAtLabel: 'Последнее обновление в',
   },
+
+  denialOfResponsibilityWarning: {
+    message:
+      'Этот проект должен использоваться только для тестирования или образовательных целей',
+    okBtnLabel: 'Ок',
+  },
 }
