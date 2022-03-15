@@ -68,6 +68,14 @@ export default {
     },
   },
 
+  updatesNotify: {
+    title: 'Нова версія',
+    message:
+      'Ми випустили нову версію програми. Атака відновиться відразу після оновлення',
+    okBtnLabel: 'Оновити зараз',
+    cancelBtnLabel: 'Пізніше',
+  },
+
   nav: {
     ddosDasboardLabel: 'Керування DDOS',
     ddosConfigLabel: 'Налаштування DDOS',

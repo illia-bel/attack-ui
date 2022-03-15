@@ -6,8 +6,9 @@
   "author": "ilya-belik <illia.belichenko@gmail.com>",
   "private": true,
   "scripts": {
-    "start": "quasar dev",
-    "build": "quasar build",
+    "start": "yarn update-version && quasar dev",
+    "build": "yarn update-version && quasar build",
+    "update-version": "cp ../../app.config.json ./public/app.config.json",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
