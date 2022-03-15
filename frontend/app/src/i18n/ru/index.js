@@ -69,6 +69,14 @@ export default {
     },
   },
 
+  updatesNotify: {
+    title: 'Новая версия',
+    message:
+      'Мы выпустили новую версию приложения. Атака возобновиться сразу же после обновления',
+    okBtnLabel: 'Обновить сейчас',
+    cancelBtnLabel: 'Позже',
+  },
+
   nav: {
     ddosDasboardLabel: 'Управление DDOS',
     ddosConfigLabel: 'Настройка DDOS',

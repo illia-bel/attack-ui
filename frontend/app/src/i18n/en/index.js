@@ -66,6 +66,14 @@ export default {
     },
   },
 
+  updatesNotify: {
+    title: 'New Version',
+    message:
+      'We have released a new version of the application. The attack will resume immediately after the update',
+    okBtnLabel: 'Update now',
+    cancelBtnLabel: 'Later',
+  },
+
   nav: {
     ddosDasboardLabel: 'DDOS Dashboard',
     ddosConfigLabel: 'DDOS Config',

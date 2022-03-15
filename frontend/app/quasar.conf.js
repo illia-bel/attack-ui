@@ -7,23 +7,21 @@
 // https://quasar.dev/quasar-cli/quasar-conf-js
 
 const { configure } = require('quasar/wrappers')
+const globalAppConfig = require('./public/app.config.json')
 
-const version = '1.0.0'
+const version = globalAppConfig.version
 
 const envBase = {
   PROJECT_ID: 'attack-ui',
   BRAND_NAME: 'Attack UI',
   BRAND_SHORT_NAME: '',
   BRAND_DESCRIPTION: '',
-}
-
-const envDev = {
-  VERSION: `${version} | DEV mode`,
-}
-
-const envProd = {
   VERSION: version,
 }
+
+const envDev = {}
+
+const envProd = {}
 
 module.exports = configure(function (ctx) {
   let env = {
@@ -52,7 +50,7 @@ module.exports = configure(function (ctx) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/boot-files
-    boot: ['i18n'],
+    boot: ['i18n', 'update-watch'],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
     css: ['app.scss'],
