@@ -32,6 +32,12 @@ const routes = [
             component: () =>
               import('pages/ddos/DdosAttack'),
           },
+          {
+            name: 'DdosDock',
+            path: 'dock/ddos',
+            component: () =>
+              import('pages/ddos/dock/DdosDock'),
+          },
         ],
       },
     ],
