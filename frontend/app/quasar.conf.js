@@ -229,12 +229,16 @@ module.exports = configure(function (ctx) {
         // protocol: 'myapp://path',
         // Windows only
         // win32metadata: { ... }
+        platform: 'win32',
       },
 
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: 'attack-ui',
+        appId: 'com.war-apexi.app',
+        win: {
+          target: 'portable',
+        },
       },
 
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
