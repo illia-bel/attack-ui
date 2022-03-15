@@ -62,7 +62,7 @@ export default {
       title: 'Attack started',
       description:
         'Until you press the "Stop" button or close the tab, the attack will be active. Startup may take up to 1 minute',
-      okBtnLabel: 'Okey',
+      okBtnLabel: 'Ok',
     },
   },
 
