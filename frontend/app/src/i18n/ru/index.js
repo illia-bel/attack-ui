@@ -80,6 +80,7 @@ export default {
   nav: {
     ddosDasboardLabel: 'Управление DDOS',
     ddosConfigLabel: 'Настройка DDOS',
+    telegram: 'Мы в Telegram',
   },
   ipNotify: {
     title:

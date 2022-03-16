@@ -64,5 +64,10 @@ const navList = [
       name: 'DdosConfig',
     },
   },
+  {
+    text: 'nav.telegram',
+    icon: 'group',
+    to: '/https://t.me/+crdzxQgxVNg3ZTBi',
+  },
 ]
 </script>
