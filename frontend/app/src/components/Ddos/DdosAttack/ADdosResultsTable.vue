@@ -9,7 +9,7 @@
         :rows="resultsList"
         :columns="columns"
         flat
-        :pagination="{ rowsPerPage: 30 }"
+        :pagination="{ rowsPerPage: 100 }"
         class="q-mt-sm"
       />
     </template>
@@ -27,7 +27,10 @@ const { t: i18n } = useI18n()
 const store = useStore()
 
 const resultsList = computed(() => {
-  return store.getters['ddos/getBrowserAttackResults']
+  const results =
+    store.getters['ddos/getBrowserAttackResults']
+  results.sort((a, b) => b.success - a.success)
+  return results
 })
 
 const columns = [
