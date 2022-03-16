@@ -41,13 +41,15 @@ const updateAppConfirmDialog = async newVersion => {
   location.reload()
 }
 export default boot(({ app }) => {
-  fetchVersionInteval = setInterval(async () => {
-    const fetchedVersion = await fetchVersion()
-
-    // Если новых обновлений нет
-    if (fetchedVersion === process.env.VERSION) {
-      return
-    }
-    updateAppConfirmDialog(fetchedVersion)
-  }, 5 * 1000)
+  // fetchVersionInteval = setInterval(async () => {
+  //   const fetchedVersion = await fetchVersion()
+  //   // Если новых обновлений нет
+  //   if (
+  //     Number(fetchedVersion.replace(/./g, '')) >=
+  //     Number(process.env.VERSION.replace(/./g, ''))
+  //   ) {
+  //     return
+  //   }
+  // updateAppConfirmDialog(fetchedVersion)
+  // }, 5 * 1000)
 })
