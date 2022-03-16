@@ -100,6 +100,10 @@ const payMethods = [
   },
 ]
 
+/**
+ * Copy account number
+ * @param {Number} index index pay method in payMethods array
+ */
 const copyAccountNumber = index => {
   /* Get the text field */
   const copyText = document.getElementById(
@@ -114,10 +118,16 @@ const copyAccountNumber = index => {
 
   /* Alert the copied text */
   notifyPrimary(
-    `Номер ${payMethods[index].name} cкопирован`,
+    `${i18n('donatePage.number')} ${
+      payMethods[index].name
+    } ${i18n('donatePage.copied')}`,
   )
 }
 
+/**
+ *
+ * @param {String} qrImgPath
+ */
 const openQrDialog = qrImgPath => {
   qrDialogOpen.value = true
   qrPath.value = qrImgPath

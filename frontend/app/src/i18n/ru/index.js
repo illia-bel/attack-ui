@@ -70,6 +70,8 @@ export default {
   },
   donatePage: {
     pageTitle: 'Помощь проекту',
+    number: 'Номер',
+    copied: 'скопирован',
   },
 
   updatesNotify: {

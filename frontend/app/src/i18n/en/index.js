@@ -68,6 +68,8 @@ export default {
 
   donatePage: {
     pageTitle: 'Help the project',
+    number: 'Number',
+    copied: 'copied',
   },
 
   updatesNotify: {
