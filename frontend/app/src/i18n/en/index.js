@@ -90,7 +90,7 @@ export default {
 
   denialOfResponsibilityWarning: {
     message:
-      'This project should only be used for testing or educational purposes',
+      'This site is a project for load testing your own projects. The administration does not bear any responsibility for the illegal use of this resource',
     okBtnLabel: 'Ok',
   },
 }
