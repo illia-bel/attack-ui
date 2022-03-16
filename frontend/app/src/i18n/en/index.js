@@ -77,7 +77,7 @@ export default {
   nav: {
     ddosDasboardLabel: 'DDOS Dashboard',
     ddosConfigLabel: 'DDOS Config',
-    telegram: 'We`re on Telegram',
+    telegram: 'Telegram',
   },
   ipNotify: {
     title:
