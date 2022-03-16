@@ -52,5 +52,5 @@ export default boot(({ app }) => {
       return
     }
     updateAppConfirmDialog(fetchedVersion)
-  }, 5 * 1000)
+  }, 30 * 1000)
 })
