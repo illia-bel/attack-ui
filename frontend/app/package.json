@@ -2,7 +2,7 @@
   "name": "attack-ui-app",
   "version": "0.0.1",
   "description": "Attack Ui App",
-  "productName": "Attack Ui App",
+  "productName": "Attack UI",
   "author": "ilya-belik <illia.belichenko@gmail.com>",
   "private": true,
   "scripts": {

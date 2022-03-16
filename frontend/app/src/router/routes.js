@@ -40,6 +40,11 @@ const routes = [
           },
         ],
       },
+      {
+        name: 'DonatePage',
+        path: '/donate',
+        component: () => import('pages/Donate/Donate'),
+      },
     ],
   },
 

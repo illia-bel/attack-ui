@@ -5,7 +5,7 @@
 </template>
 
 <style>
-.attack-layout .q-card {
+.attack-layout > .q-card {
   margin-top: 16px;
 }
 </style>
