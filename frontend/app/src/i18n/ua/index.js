@@ -68,6 +68,10 @@ export default {
     },
   },
 
+  donatePage: {
+    pageTitle: 'Допомогти проекту',
+  },
+
   updatesNotify: {
     title: 'Нова версія',
     message:
@@ -80,6 +84,7 @@ export default {
     ddosDasboardLabel: 'Керування DDOS',
     ddosConfigLabel: 'Налаштування DDOS',
     telegram: 'Ми в Telegram',
+    donatePage: 'Допомогти проекту',
   },
   ipNotify: {
     title:

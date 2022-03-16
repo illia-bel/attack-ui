@@ -66,6 +66,10 @@ export default {
     },
   },
 
+  donatePage: {
+    pageTitle: 'Help the project',
+  },
+
   updatesNotify: {
     title: 'New Version',
     message:
@@ -78,6 +82,7 @@ export default {
     ddosDasboardLabel: 'DDOS Dashboard',
     ddosConfigLabel: 'DDOS Config',
     telegram: 'Telegram',
+    donatePage: 'Help the project',
   },
   ipNotify: {
     title:

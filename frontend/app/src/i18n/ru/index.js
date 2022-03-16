@@ -68,6 +68,9 @@ export default {
       okBtnLabel: 'Ок',
     },
   },
+  donatePage: {
+    pageTitle: 'Помощь проекту',
+  },
 
   updatesNotify: {
     title: 'Новая версия',
@@ -81,6 +84,7 @@ export default {
     ddosDasboardLabel: 'Управление DDOS',
     ddosConfigLabel: 'Настройка DDOS',
     telegram: 'Мы в Telegram',
+    donatePage: 'Помочь проекту',
   },
   ipNotify: {
     title:

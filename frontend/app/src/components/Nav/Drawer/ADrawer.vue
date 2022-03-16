@@ -65,6 +65,13 @@ const navList = [
     },
   },
   {
+    text: 'nav.donatePage',
+    icon: 'payments',
+    to: {
+      name: 'DonatePage',
+    },
+  },
+  {
     text: 'nav.telegram',
     icon: 'group',
     to: '/https://t.me/+crdzxQgxVNg3ZTBi',
