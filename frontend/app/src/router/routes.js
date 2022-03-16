@@ -43,11 +43,17 @@ const routes = [
     ],
   },
 
-  // Always leave this as last one,
-  // but you can also remove it
   {
     path: '/:catchAll(.*)*',
     component: () => import('pages/Error404'),
+    beforeEnter: (to, from, next) => {
+      if (to.path.indexOf('http') === -1) {
+        next()
+        return
+      }
+
+      window.open(to.fullPath.substring(1))
+    },
   },
 ]
 
