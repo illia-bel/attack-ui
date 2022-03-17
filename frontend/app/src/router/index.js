@@ -7,7 +7,7 @@ import {
 } from 'vue-router'
 import routes from './routes'
 
-// import { analytics } from 'src/modules/analytics'
+import { useMeta } from 'src/modules/meta'
 
 /*
  * If not building with SSR mode, you can
@@ -38,6 +38,14 @@ export default route(
           ? void 0
           : process.env.VUE_ROUTER_BASE,
       ),
+    })
+
+    Router.beforeResolve(async (to, from, next) => {
+      useMeta({
+        title: to.meta?.seo?.title,
+      })
+
+      next()
     })
 
     // Router.beforeEach(() => {

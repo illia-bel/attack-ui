@@ -20,6 +20,7 @@ export default {
       target: 'Target',
       success: 'Success requests',
       errors: 'Errors count',
+      checkAvailability: 'Check availability',
     },
 
     totalResults: {

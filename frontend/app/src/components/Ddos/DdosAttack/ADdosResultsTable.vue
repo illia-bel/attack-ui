@@ -11,7 +11,20 @@
         flat
         :pagination="{ rowsPerPage: 100 }"
         class="q-mt-sm"
-      />
+      >
+        <template #body-cell-ping="{ row: { target } }">
+          <q-td>
+            <q-btn
+              icon="open_in_new"
+              dense
+              no-caps
+              :to="`/https://check-host.net/check-ping?host=${target}`"
+              color="grey"
+              flat
+            />
+          </q-td>
+        </template>
+      </q-table>
     </template>
   </a-card>
 </template>
@@ -56,6 +69,13 @@ const columns = [
     align: 'left',
     field: 'error',
     sortable: true,
+  },
+  {
+    name: 'ping',
+    required: false,
+    label: i18n('attackPage.table.checkAvailability'),
+    align: 'left',
+    field: 'ping',
   },
 ]
 </script>
