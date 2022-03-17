@@ -22,6 +22,7 @@ export default {
       target: 'Цель',
       success: 'Успешных запросов',
       errors: 'Ошибок',
+      checkAvailability: 'Проверить доступность',
     },
 
     totalResults: {

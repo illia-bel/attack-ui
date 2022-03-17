@@ -22,6 +22,7 @@ export default {
       target: 'Мета',
       success: 'Успішних запитів',
       errors: 'Помилок',
+      checkAvailability: 'Перевірити доступність',
     },
 
     totalResults: {
