@@ -9,6 +9,11 @@ const routes = [
         path: '/',
         component: () => import('pages/Index'),
         redirect: { name: 'DdosConfig' },
+        meta: {
+          seo: {
+            title: 'Home',
+          },
+        },
       },
 
       /**
@@ -25,18 +30,33 @@ const routes = [
             path: 'ddos/config',
             component: () =>
               import('pages/ddos/DdosConfig'),
+            meta: {
+              seo: {
+                title: 'Config ddos',
+              },
+            },
           },
           {
             name: 'DdosAttack',
             path: 'ddos/start',
             component: () =>
               import('pages/ddos/DdosAttack'),
+            meta: {
+              seo: {
+                title: 'Dashboard ddos',
+              },
+            },
           },
           {
             name: 'DdosDock',
             path: 'dock/ddos',
             component: () =>
               import('pages/ddos/dock/DdosDock'),
+            meta: {
+              seo: {
+                title: 'Dock ddos',
+              },
+            },
           },
         ],
       },
@@ -44,6 +64,11 @@ const routes = [
         name: 'DonatePage',
         path: '/donate',
         component: () => import('pages/Donate/Donate'),
+        meta: {
+          seo: {
+            title: 'Donate',
+          },
+        },
       },
     ],
   },
@@ -61,6 +86,11 @@ const routes = [
         to.fullPath.substring(1),
       )
       window.open(to.fullPath.substring(1))
+    },
+    meta: {
+      seo: {
+        title: 'Error 404',
+      },
     },
   },
 ]
