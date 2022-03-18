@@ -48,6 +48,8 @@ export default {
 
     targetsCardTitle: 'Targets',
     addTargetFieldLabel: 'Link/ip to target',
+    addTargetFieldHint:
+      'You can paste any text with links to targets and we will automatically find them',
     addTargetBtnLabel: 'Add',
     targetsAddListTitle: 'Targets to be added',
     targetTooltipText: 'Click to open in a new tab',

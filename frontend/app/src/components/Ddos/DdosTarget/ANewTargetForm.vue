@@ -10,6 +10,7 @@
       stack-label
       autogrow
       class="col-xs-12 col-md-10"
+      :hint="i18n('attackConfigPage.addTargetFieldHint')"
     />
     <q-btn
       :label="i18n('attackConfigPage.addTargetBtnLabel')"
@@ -79,16 +80,7 @@ const targetsList = computed(() => {
     .replace(/\r?\n/g, ',')
     .replace(/ /g, ',')
     .split(',')
-    .map(target => {
-      let formattedTarget = target.trim()
-
-      // Добавляем http для ip адресов
-      if (isIP(target) && formattedTarget.indexOf('http')) {
-        formattedTarget = `http://${formattedTarget}`
-      }
-
-      return formattedTarget
-    })
+    .map(target => target.trim())
     .filter(target => {
       return isURL(target) || isIP(target)
     })

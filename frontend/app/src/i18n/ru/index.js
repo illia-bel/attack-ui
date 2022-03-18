@@ -50,6 +50,8 @@ export default {
 
     targetsCardTitle: 'Цели',
     addTargetFieldLabel: 'Ссылка или IP',
+    addTargetFieldHint:
+      'Вы можете вставить любой текст со ссылками на цели и мы автоматически найдем их',
     addTargetBtnLabel: 'Добавить',
     targetsAddListTitle: 'Цели которые будут добавлены',
     targetTooltipText:
