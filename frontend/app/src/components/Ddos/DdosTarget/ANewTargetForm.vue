@@ -79,16 +79,7 @@ const targetsList = computed(() => {
     .replace(/\r?\n/g, ',')
     .replace(/ /g, ',')
     .split(',')
-    .map(target => {
-      let formattedTarget = target.trim()
-
-      // Добавляем http для ip адресов
-      if (isIP(target) && formattedTarget.indexOf('http')) {
-        formattedTarget = `http://${formattedTarget}`
-      }
-
-      return formattedTarget
-    })
+    .map(target => target.trim())
     .filter(target => {
       return isURL(target) || isIP(target)
     })
