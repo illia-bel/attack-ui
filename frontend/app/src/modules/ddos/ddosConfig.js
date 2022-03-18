@@ -14,17 +14,11 @@ export const validateTarget = (target, targetsList) => {
   if (!target) return
 
   if (!(isURL(target) || isIP(target))) {
-    notifyError(
-      i18n('attackConfigPage.invalidTargetNotify'),
-    )
     return
   }
 
   // If target already added to targetsList
   if (targetsList.indexOf(target.trim()) > -1) {
-    notifyError(
-      i18n('attackConfigPage.targetaAreadyAddedNotify'),
-    )
     return
   }
 

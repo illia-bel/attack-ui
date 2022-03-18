@@ -51,12 +51,13 @@ export default {
     targetsCardTitle: 'Цілі',
     addTargetFieldLabel: 'Посилання або IP',
     addTargetBtnLabel: 'Додати',
+    targetsAddListTitle: 'Cписок цілей, які будуть додані',
     targetTooltipText:
       'Натисніть, щоб відкрити нову вкладку',
 
     invalidTargetNotify: 'Це не схоже на URL або IP адресу',
     tarjetaAreadyAddedNotify: 'Мета вже додана',
-    targetAddedNotify: 'Мета додана',
+    targetAddedNotify: 'Ціль додана',
 
     errorReqDefaultNotify:
       'Помилка за запитом стандартних цілей',

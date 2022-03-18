@@ -5,3 +5,7 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule (.*) /index.html [QSA,L]
 </ifModule>
+
+<FilesMatch "\.(json)$">
+  Header unset Cache-Control
+</FilesMatch>
