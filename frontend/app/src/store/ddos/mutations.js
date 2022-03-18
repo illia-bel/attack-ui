@@ -29,8 +29,7 @@ export const setTargets = (
   { targets, callback },
 ) => {
   // analytics.track('set-target')
-  // If target already added
-  console.log('targets = ', targets)
+
   // Фильтрует цели на валидность
   const filteredTargets = targets.filter(target => {
     return validateTarget(target, state.targetsList)
@@ -38,6 +37,13 @@ export const setTargets = (
 
   // If target is invalid
   state.targetsList.unshift(...filteredTargets)
+
+  // Удаление результатов старых целей
+  for (const tragetResultKey in state.resultsBrowserAttack) {
+    if (state.targetsList.indexOf(tragetResultKey) === -1) {
+      delete state.resultsBrowserAttack[tragetResultKey]
+    }
+  }
   notifyPrimary(i18n('attackConfigPage.targetAddedNotify'))
 
   if (!callback) return
