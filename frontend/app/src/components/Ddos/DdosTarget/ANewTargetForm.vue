@@ -10,6 +10,7 @@
       stack-label
       autogrow
       class="col-xs-12 col-md-10"
+      :hint="i18n('attackConfigPage.addTargetFieldHint')"
     />
     <q-btn
       :label="i18n('attackConfigPage.addTargetBtnLabel')"
