@@ -51,6 +51,7 @@ export default {
     targetsCardTitle: 'Цели',
     addTargetFieldLabel: 'Ссылка или IP',
     addTargetBtnLabel: 'Добавить',
+    targetsAddListTitle: 'Цели которые будут добавлены',
     targetTooltipText:
       'Нажмите, чтобы открыть в новой вкладке',
 

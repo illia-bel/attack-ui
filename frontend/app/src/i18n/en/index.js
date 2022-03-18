@@ -49,6 +49,7 @@ export default {
     targetsCardTitle: 'Targets',
     addTargetFieldLabel: 'Link/ip to target',
     addTargetBtnLabel: 'Add',
+    targetsAddListTitle: 'Targets to be added',
     targetTooltipText: 'Click to open in a new tab',
 
     invalidTargetNotify:

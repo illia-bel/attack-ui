@@ -22,16 +22,22 @@ export const removeTarget = (state, index) => {
 
 /**
  * Set targets to state
- * @param {Array} target Target link/ip
+ * @param {Array} targets Target link/ip
  */
-export const setTarget = (state, { target, callback }) => {
+export const setTargets = (
+  state,
+  { targets, callback },
+) => {
   // analytics.track('set-target')
   // If target already added
-  if (state.targetsList.indexOf(target) > 0) return
+  console.log('targets = ', targets)
+  // Фильтрует цели на валидность
+  const filteredTargets = targets.filter(target => {
+    return validateTarget(target, state.targetsList)
+  })
 
   // If target is invalid
-  if (!validateTarget(target, state.targetsList)) return
-  state.targetsList.unshift(target)
+  state.targetsList.unshift(...filteredTargets)
   notifyPrimary(i18n('attackConfigPage.targetAddedNotify'))
 
   if (!callback) return
