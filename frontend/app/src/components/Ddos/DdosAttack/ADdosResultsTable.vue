@@ -8,7 +8,7 @@
       <div class="q-mt-md">
         <q-btn
           @click="removeSelectedTargets"
-          label="Удалить выбранные цели"
+          :label="i18n('attackPage.deleteSelectedTargets')"
           icon="delete"
           flat
           color="grey"

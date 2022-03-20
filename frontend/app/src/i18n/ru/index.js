@@ -18,6 +18,7 @@ export default {
 
     resultsCardTitle: 'Результаты атаки',
 
+    deleteSelectedTargets: 'Удалить выбранные цели',
     table: {
       target: 'Цель',
       success: 'Успешных запросов',

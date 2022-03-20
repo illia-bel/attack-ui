@@ -15,6 +15,7 @@ export default {
     attackStoppedStatusLabel: 'Stopped',
 
     resultsCardTitle: 'Results',
+    deleteSelectedTargets: 'Delete selected targets',
 
     table: {
       target: 'Target',
