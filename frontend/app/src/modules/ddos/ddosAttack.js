@@ -18,7 +18,7 @@ const confirmReqTarget = target => {
     return true
   }
 
-  const confirmResult = !(
+  let confirmResult = !(
     ignoreTargetsList[target]['success'] === 0 &&
     ignoreTargetsList[target]['error'] > 30
   )

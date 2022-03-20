@@ -5,6 +5,17 @@
   >
     <template #body>
       <a-ddos-total-results />
+      <div class="q-mt-md">
+        <q-btn
+          @click="removeSelectedTargets"
+          label="Удалить выбранные цели"
+          icon="delete"
+          flat
+          color="grey"
+          no-caps
+          :disable="stateBulkRemoveTargetsBtn"
+        />
+      </div>
       <q-table
         :rows="resultsList"
         :columns="columns"
@@ -12,6 +23,18 @@
         :pagination="{ rowsPerPage: 100 }"
         class="q-mt-sm"
       >
+        <template #header-cell-select>
+          <q-th class="text-left">
+            <q-checkbox v-model="toggleAllTargets" />
+          </q-th>
+        </template>
+        <template #body-cell-select="{ row: { target } }">
+          <q-td>
+            <q-checkbox
+              v-model="selectedTargetsModel[target]"
+            />
+          </q-td>
+        </template>
         <template #body-cell-ping="{ row: { target } }">
           <q-td>
             <q-btn
@@ -30,7 +53,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, reactive, ref, watch } from 'vue'
 import { useStore } from 'vuex'
 import { useI18n } from 'vue-i18n'
 import ACard from 'src/components/Cards/ACard'
@@ -47,6 +70,11 @@ const resultsList = computed(() => {
 })
 
 const columns = [
+  {
+    name: 'select',
+    align: 'left',
+    field: 'select',
+  },
   {
     name: 'target',
     required: true,
@@ -78,4 +106,45 @@ const columns = [
     field: 'ping',
   },
 ]
+
+// Модель выбранных строк таблицы
+const selectedTargetsModel = reactive({})
+
+// Ставим дефолтное значение для selectedTargetsModel
+Object.entries(resultsList.value).forEach(
+  ([key, { target }]) => {
+    selectedTargetsModel[target] = false
+  },
+)
+
+// Переключить все цели
+const toggleAllTargets = ref(false)
+watch(toggleAllTargets, state => {
+  Object.entries(selectedTargetsModel).forEach(
+    ([target]) => {
+      selectedTargetsModel[target] = state
+    },
+  )
+})
+
+const selectedTargets = computed(() => {
+  const result = []
+  Object.entries(selectedTargetsModel).forEach(
+    ([target, selected]) => {
+      if (selected) result.push(target)
+    },
+  )
+
+  return result
+})
+
+const stateBulkRemoveTargetsBtn = computed(() => {
+  return selectedTargets.value.length === 0
+})
+
+const removeSelectedTargets = () => {
+  selectedTargets.value.forEach(target => {
+    store.commit('ddos/removeTarget', target)
+  })
+}
 </script>

