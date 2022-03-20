@@ -62,12 +62,27 @@ import ADdosTotalResults from 'src/components/Ddos/DdosAttack/ADdosTotalResults'
 const { t: i18n } = useI18n()
 const store = useStore()
 
+// Модель выбранных строк таблицы
+const seletedTargetsIsInit = ref(false)
+
 const resultsList = computed(() => {
   const results =
     store.getters['ddos/getBrowserAttackResults']
+
+  if (!seletedTargetsIsInit.value) {
+    // Ставим дефолтное значение для selectedTargetsModel
+    seletedTargetsIsInit.value = true
+  }
+
   results.sort((a, b) => b.success - a.success)
+
   return results
 })
+
+const selectedTargetsModel = reactive({})
+for (const { target } of resultsList.value) {
+  selectedTargetsModel[target] = false
+}
 
 const columns = [
   {
@@ -106,16 +121,6 @@ const columns = [
     field: 'ping',
   },
 ]
-
-// Модель выбранных строк таблицы
-const selectedTargetsModel = reactive({})
-
-// Ставим дефолтное значение для selectedTargetsModel
-Object.entries(resultsList.value).forEach(
-  ([key, { target }]) => {
-    selectedTargetsModel[target] = false
-  },
-)
 
 // Переключить все цели
 const toggleAllTargets = ref(false)
