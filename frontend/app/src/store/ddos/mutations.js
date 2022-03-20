@@ -69,6 +69,14 @@ export const setTargets = (
 export const setInitTargets = (state, targets) => {
   removeAllTargets(state)
   state.targetsList.push(...targets)
+
+  for (let i = 0; i < targets.length; i++) {
+    const target = targets[i]
+    state.resultsBrowserAttack[target] = {
+      success: 0,
+      error: 0,
+    }
+  }
 }
 
 /**
