@@ -8,16 +8,19 @@ import { i18n } from 'src/modules/i18n'
 export const removeAllTargets = state => {
   // analytics.track('remove-all-targets')
   state.targetsList = []
+  state.resultsBrowserAttack = {}
 }
 
 /**
  * Remove target item from targetsList
  * @param {Number} index item index in targetsList
  */
-export const removeTarget = (state, index) => {
+export const removeTarget = (state, target) => {
   // analytics.track('remove-target')
-
+  const index = state.targetsList.indexOf(target)
+  if (index < 0) return
   state.targetsList.splice(index, 1)
+  delete state.resultsBrowserAttack[target]
 }
 
 /**
@@ -32,7 +35,16 @@ export const setTargets = (
 
   // Фильтрует цели на валидность
   const filteredTargets = targets.filter(target => {
-    return validateTarget(target, state.targetsList)
+    const result = validateTarget(target, state.targetsList)
+
+    if (result) {
+      state.resultsBrowserAttack[target] = {
+        success: 0,
+        error: 0,
+      }
+    }
+
+    return result
   })
 
   // If target is invalid

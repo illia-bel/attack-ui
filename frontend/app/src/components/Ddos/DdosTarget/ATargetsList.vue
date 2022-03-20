@@ -10,7 +10,7 @@
         removable
         outline
         color="primary"
-        @remove="removeTarget(key)"
+        @remove="removeTarget(target)"
       >
         <q-tooltip>
           {{ i18n('attackConfigPage.targetTooltipText') }}
@@ -37,8 +37,8 @@ onBeforeMount(() => {
  * Remove one target item
  * @param {Number} index index target item in array
  */
-const removeTarget = index => {
-  store.commit('ddos/removeTarget', index)
+const removeTarget = target => {
+  store.commit('ddos/removeTarget', target)
 }
 
 const targetsList = computed(() => {
