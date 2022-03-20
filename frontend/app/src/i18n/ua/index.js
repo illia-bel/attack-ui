@@ -17,6 +17,7 @@ export default {
     attackStoppedStatusLabel: 'Зупинено',
 
     resultsCardTitle: 'Результати атаки',
+    deleteSelectedTargets: 'Видалити вибрані цілі',
 
     table: {
       target: 'Мета',
