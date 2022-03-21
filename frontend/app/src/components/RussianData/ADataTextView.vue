@@ -4,6 +4,7 @@
       v-model="dataSeparatorValue"
       :label="i18n('russianDataPage.listSeparator')"
       stack-label
+      class="q-mr-md col-12 col-sm-4 col-md-2"
     />
     <q-btn
       @click="copyData"
@@ -11,7 +12,7 @@
       icon="content_copy"
       no-caps
       color="primary"
-      class="q-ml-md"
+      class="copy-btn"
     />
   </div>
   <div class="q-mt-sm">
@@ -95,3 +96,11 @@ const copyData = () => {
   notifyPrimary(i18n('russianDataPage.dataIsCopied'))
 }
 </script>
+
+<style lang="scss" scouped>
+@media screen and (max-width: 600px) {
+  .copy-btn {
+    margin: 16px 0 0 0;
+  }
+}
+</style>
