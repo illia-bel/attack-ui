@@ -47,22 +47,52 @@ const leftDrawerState = computed({
       return process.env.dev
     },
   },
+
+
+  {
+    text: 'Subnav Title',
+    icon: '', // icon name
+    type: 'subnav',    
+
+    // show if showRule return true
+    showRule: () => {
+      return process.env.dev
+    },
+  },
  */
 
 const navList = [
   {
-    text: 'nav.ddosDasboardLabel',
+    text: 'nav.ddos.subnavLabel',
     icon: 'dns',
-    to: {
-      name: 'DdosAttack',
-    },
+    type: 'subnav',
+    itemsList: [
+      {
+        text: 'nav.ddos.dasboardLabel',
+        to: {
+          name: 'DdosAttack',
+        },
+      },
+      {
+        text: 'nav.ddos.configLabel',
+        to: {
+          name: 'DdosConfig',
+        },
+      },
+    ],
   },
   {
-    text: 'nav.ddosConfigLabel',
-    icon: 'settings',
-    to: {
-      name: 'DdosConfig',
-    },
+    text: 'nav.russianData.subnavLabel',
+    icon: 'list_alt',
+    type: 'subnav',
+    itemsList: [
+      {
+        text: 'nav.russianData.emailsLabel',
+        to: {
+          name: 'RussianEmails',
+        },
+      },
+    ],
   },
   {
     text: 'nav.donatePage',

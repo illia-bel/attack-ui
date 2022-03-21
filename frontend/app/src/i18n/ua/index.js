@@ -79,6 +79,19 @@ export default {
     copied: 'скопійований',
   },
 
+  russianEmailsPage: {
+    pageTitle:
+      'Список E-mail російських сервісів та компаній',
+    dataSourceLabel: 'Джерело',
+  },
+
+  russianDataPage: {
+    copyData: 'Копіювати список',
+    listSeparator: 'Розділювач списку',
+    dataIsCopied: 'Скопійовано',
+    openJsonBtn: 'Показати в JSON',
+  },
+
   updatesNotify: {
     title: 'Нова версія',
     message:
@@ -88,8 +101,17 @@ export default {
   },
 
   nav: {
-    ddosDasboardLabel: 'Керування DDOS',
-    ddosConfigLabel: 'Налаштування DDOS',
+    ddos: {
+      subnavLabel: 'DDOS Атака',
+      dasboardLabel: 'Управління',
+      configLabel: 'Налаштування',
+    },
+
+    russianData: {
+      subnavLabel: 'Дані росіян',
+      emailsLabel: 'Список email',
+    },
+
     telegram: 'Ми в Telegram',
     donatePage: 'Допомогти проекту',
   },
