@@ -86,8 +86,12 @@ export default {
   },
 
   nav: {
-    ddosDasboardLabel: 'DDOS Dashboard',
-    ddosConfigLabel: 'DDOS Config',
+    ddos: {
+      subnavLabel: 'DDOS Attack',
+      dasboardLabel: 'Control',
+      configLabel: 'Configuration',
+    },
+
     telegram: 'Telegram',
     donatePage: 'Help the project',
   },

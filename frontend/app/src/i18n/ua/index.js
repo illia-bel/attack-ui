@@ -88,8 +88,12 @@ export default {
   },
 
   nav: {
-    ddosDasboardLabel: 'Керування DDOS',
-    ddosConfigLabel: 'Налаштування DDOS',
+    ddos: {
+      subnavLabel: 'DDOS Атака',
+      dasboardLabel: 'Управління',
+      configLabel: 'Налаштування',
+    },
+
     telegram: 'Ми в Telegram',
     donatePage: 'Допомогти проекту',
   },
