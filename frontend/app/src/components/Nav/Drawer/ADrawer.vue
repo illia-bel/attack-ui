@@ -82,6 +82,19 @@ const navList = [
     ],
   },
   {
+    text: 'nav.russianData.subnavLabel',
+    icon: 'list_alt',
+    type: 'subnav',
+    itemsList: [
+      {
+        text: 'nav.russianData.emailsLabel',
+        to: {
+          name: 'RussianEmails',
+        },
+      },
+    ],
+  },
+  {
     text: 'nav.donatePage',
     icon: 'payments',
     to: {

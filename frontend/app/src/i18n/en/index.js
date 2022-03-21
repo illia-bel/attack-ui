@@ -77,6 +77,19 @@ export default {
     copied: 'copied',
   },
 
+  russianEmailsPage: {
+    pageTitle:
+      'E-mail list of Russian services and companies',
+    dataSourceLabel: 'Source',
+  },
+
+  russianDataPage: {
+    listSeparator: 'List Separator',
+    copyData: 'Copy list',
+    dataIsCopied: 'Copied',
+    openJsonBtn: 'Show in JSON',
+  },
+
   updatesNotify: {
     title: 'New Version',
     message:
@@ -90,6 +103,11 @@ export default {
       subnavLabel: 'DDOS Attack',
       dasboardLabel: 'Control',
       configLabel: 'Configuration',
+    },
+
+    russianData: {
+      subnavLabel: 'Russians Data',
+      emailsLabel: 'Email List',
     },
 
     telegram: 'Telegram',

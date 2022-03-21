@@ -60,6 +60,10 @@ const routes = [
           },
         ],
       },
+
+      /**
+       * Donate page
+       */
       {
         name: 'DonatePage',
         path: '/donate',
@@ -69,6 +73,30 @@ const routes = [
             title: 'Donate',
           },
         },
+      },
+
+      /**
+       * Russian Data Pages
+       */
+      {
+        name: 'RussianDataLayout',
+        path: '/ru-data',
+        component: () =>
+          import('layouts/RussianDataLayout'),
+        children: [
+          // RussianEmails
+          {
+            name: 'RussianEmails',
+            path: 'emails',
+            component: () =>
+              import('pages/RussianData/RussianEmails'),
+            meta: {
+              seo: {
+                title: 'Russian Emails',
+              },
+            },
+          },
+        ],
       },
     ],
   },
