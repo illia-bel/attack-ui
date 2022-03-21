@@ -34,7 +34,7 @@ export default {
     pageTitle: 'DDOS Configuration',
     connectionsTitle: 'Connections',
     reqCountFieldLabel: 'Request limit per interval',
-    reqCountFieldHint: 'Recommended quantity - 100',
+    reqCountFieldHint: 'Recommended quantity:  100',
 
     streamsCountLabel: 'Streams count',
     streamsCountHint: 'In development',
@@ -43,7 +43,7 @@ export default {
     startAttackBtnLabel: 'Start attack',
 
     intervalTimeFieldLabel: 'Interval length',
-    intervalTimeFieldHint: 'In milliseconds',
+    intervalTimeFieldHint: 'In milliseconds (default: 300)',
 
     removeAllTargetsBtnLabel: 'Remove All Targets',
 
@@ -69,6 +69,17 @@ export default {
         'Until you press the "Stop" button or close the tab, the attack will be active. Startup may take up to 1 minute',
       okBtnLabel: 'Ok',
     },
+
+    targetsAutoUpdate: {
+      title        : 'Targets auto-update',
+      notification : 'Targets have been automatically updated',
+
+      isEnabledFieldLabel : 'Enabled',
+      isEnabledFieldHint  : 'Auto-Update target list',
+
+      intervalFieldLabel : 'Update interval',
+      intervalFieldHint  : 'In minutes (default: 60)',
+    }
   },
 
   donatePage: {

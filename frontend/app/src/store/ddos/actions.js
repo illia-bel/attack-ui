@@ -1,4 +1,4 @@
-import { getDefaultTargets } from 'src/modules/api'
+import { fetchTargets } from 'src/modules/api'
 import {
   initSendReqests,
   startAttackNotify,
@@ -14,7 +14,8 @@ export const setDefaultTargets = async ctx => {
   try {
     if (ctx.getters.getTargetsList.length > 0) return
 
-    const respTargets = await getDefaultTargets()
+    const respTargets = await fetchTargets()
+
     ctx.commit('setInitTargets', respTargets)
   } catch (error) {
     notifyError(
@@ -108,4 +109,26 @@ export const destroyBrowserAttack = ctx => {
   clearInterval(reqIntevalId)
   ctx.commit('setBrowserAttackIntervalId', null)
   ctx.commit('setBrowserAttackStatus', false)
+}
+
+export const setTargetsUpdateSettings = (ctx, settings) => {
+  const targetsUpdateIntervalId = ctx.getters.getBrowserAttackIntervalId
+
+  targetsUpdateIntervalId && clearInterval(targetsUpdateIntervalId)
+
+  const { isTargetsAutoUpdateEnabled, targetsAutoUpdateInterval } = settings
+
+  if (isTargetsAutoUpdateEnabled) {
+    const targetsAutoUpdateIntervalId = setInterval(async () => {
+      ctx.dispatch('setDefaultTargets')
+
+      notifyPrimary(i18n('attackConfigPage.targetsAutoUpdate.notification'))
+    }, targetsAutoUpdateInterval * 60 * 1000)
+
+    ctx.commit('setTargetsAutoUpdateIntervalId', targetsAutoUpdateIntervalId)
+  } else {
+    ctx.commit('setTargetsAutoUpdateIntervalId', null)
+  }
+
+  ctx.commit('setDdosConfig', settings)
 }

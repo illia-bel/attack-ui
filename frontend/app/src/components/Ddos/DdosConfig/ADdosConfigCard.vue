@@ -6,7 +6,7 @@
     <template #body>
       <q-form class="row ddos-config-card">
         <q-input
-          v-model="formData.reqCount"
+          v-model.number="formData.reqCount"
           :label="
             i18n('attackConfigPage.reqCountFieldLabel')
           "
@@ -15,7 +15,7 @@
           :hint="i18n('attackConfigPage.reqCountFieldHint')"
         />
         <q-input
-          v-model="formData.intervalLength"
+          v-model.number="formData.intervalLength"
           :label="
             i18n('attackConfigPage.intervalTimeFieldLabel')
           "

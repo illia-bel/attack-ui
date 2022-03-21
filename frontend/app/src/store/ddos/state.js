@@ -6,6 +6,9 @@ export default function () {
       default: {
         reqCount: 100, // per sec
         intervalLength: 300, // ms
+
+        isTargetsAutoUpdateEnabled : true,
+        targetsAutoUpdateInterval  : 60, // min
       },
     },
 
@@ -22,5 +25,7 @@ export default function () {
     },
     browserAttackStatus: false,
     browserAttackIntervalId: null,
+
+    targetsAutoUpdateIntervalId: null,
   }
 }

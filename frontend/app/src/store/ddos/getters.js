@@ -52,3 +52,19 @@ export const getBrowserAttackIntervalId = state => {
 export const getCommonResultsBrowserAttack = state => {
   return state.commonResultsBrowserAttack
 }
+
+export const getIsTargetsAutoUpdateEnabled = state => {
+  const { user: userConfig, default: defaultConfig } = state.config
+
+  return userConfig.isTargetsAutoUpdateEnabled ?? defaultConfig.isTargetsAutoUpdateEnabled
+}
+
+export const getTargetsAutoUpdateInterval = state => {
+  const { user: userConfig, default: defaultConfig } = state.config
+
+  return userConfig.targetsAutoUpdateInterval || defaultConfig.targetsAutoUpdateInterval
+}
+
+export const getTargetsAutoUpdateIntervalId = state => {
+  return state.targetsAutoUpdateIntervalId
+}
