@@ -10,7 +10,6 @@
         :key="key + text"
         :to="to"
         clickable
-        v-ripple
         :class="{
           'no-padding': type === 'subnav',
         }"
@@ -37,7 +36,6 @@
                   v-if="showRule ? showRule() : true"
                   :to="to"
                   clickable
-                  v-ripple
                 >
                   <q-item-section avatar>
                     <q-icon :name="icon" />
