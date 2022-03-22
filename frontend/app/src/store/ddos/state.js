@@ -8,7 +8,8 @@ export default function () {
         intervalLength: 300, // ms
 
         isTargetsAutoUpdateEnabled : true,
-        targetsAutoUpdateInterval  : 60, // min
+        targetsAutoUpdateInterval  : 60, // minutes
+        targetsFileUrl             : 'targets.json',
       },
     },
 

@@ -1,40 +1,38 @@
 <template>
   <a-card
-    :title="i18n('attackConfigPage.connectionsTitle')"
-    class="col-12"
+    class  = "col-12"
+    :title = "i18n('attackConfigPage.connectionsTitle')"
   >
     <template #body>
-      <q-form class="row ddos-config-card">
+      <q-form class="row q-gutter-md ddos-config-card">
         <q-input
-          v-model.number="formData.reqCount"
-          :label="
-            i18n('attackConfigPage.reqCountFieldLabel')
-          "
-          type="number"
-          class="col-12 col-md-6 q-pr-md"
-          :hint="i18n('attackConfigPage.reqCountFieldHint')"
+          debounce       = "500"
+          mask           = "######"
+          class          = "col"
+          v-model.number = "formData.reqCount"
+          :label         = "i18n('attackConfigPage.reqCountFieldLabel')"
+          :hint          = "i18n('attackConfigPage.reqCountFieldHint')"
+          :rules         = "[ val => val > 0 || i18n('attackConfigPage.reqCountValidationHint') ]"
         />
+
         <q-input
-          v-model.number="formData.intervalLength"
-          :label="
-            i18n('attackConfigPage.intervalTimeFieldLabel')
-          "
-          type="number"
-          class="col-12 col-md-6 q-pl-md"
-          :hint="
-            i18n('attackConfigPage.intervalTimeFieldHint')
-          "
+          debounce       = "500"
+          mask           = "######"
+          class          = "col"
+          v-model.number = "formData.intervalLength"
+          :label         = "i18n('attackConfigPage.intervalTimeFieldLabel')"
+          :hint          = "i18n('attackConfigPage.intervalTimeFieldHint')"
+          :rules         = "[ val => val > 0 || i18n('attackConfigPage.intervalTimeValidationHint') ]"
         />
       </q-form>
     </template>
+
     <template #actions>
       <q-btn
-        @click="resetDdosConfig"
-        :label="
-          i18n('attackConfigPage.resetConfigBtnLabel')
-        "
-        color="red"
         flat
+        color  = "red"
+        @click = "resetDdosConfig"
+        :label = "i18n('attackConfigPage.resetConfigBtnLabel')"
       />
     </template>
   </a-card>
@@ -82,14 +80,3 @@ const resetDdosConfig = () => {
   updateConfig()
 }
 </script>
-
-<style lang="scss">
-@media screen and (max-width: 920px) {
-  .ddos-config-card .q-field {
-    padding: 0;
-    &:not(:first-child) {
-      margin-top: 16px;
-    }
-  }
-}
-</style>

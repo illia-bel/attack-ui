@@ -65,6 +65,12 @@ export const getTargetsAutoUpdateInterval = state => {
   return userConfig.targetsAutoUpdateInterval || defaultConfig.targetsAutoUpdateInterval
 }
 
+export const getTargetsFileUrl = state => {
+  const { user: userConfig, default: defaultConfig } = state.config
+
+  return userConfig.targetsFileUrl || defaultConfig.targetsFileUrl
+}
+
 export const getTargetsAutoUpdateIntervalId = state => {
   return state.targetsAutoUpdateIntervalId
 }

@@ -9,7 +9,7 @@ export default boot(({ store }) => {
   if (!isTargetsAutoUpdateEnabled) return
 
   const targetsAutoUpdateIntervalId = setInterval(async () => {
-    store.dispatch('ddos/setDefaultTargets')
+    await store.dispatch('ddos/setDefaultTargets')
 
     notifyPrimary(i18n('attackConfigPage.targetsAutoUpdate.notification'))
   }, targetsAutoUpdateInterval * 60 * 1000)

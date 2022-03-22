@@ -12,9 +12,7 @@ import { i18n } from 'src/modules/i18n'
  */
 export const setDefaultTargets = async ctx => {
   try {
-    if (ctx.getters.getTargetsList.length > 0) return
-
-    const respTargets = await fetchTargets()
+    const respTargets = await fetchTargets(ctx.getters.getTargetsFileUrl)
 
     ctx.commit('setInitTargets', respTargets)
   } catch (error) {
@@ -120,7 +118,7 @@ export const setTargetsUpdateSettings = (ctx, settings) => {
 
   if (isTargetsAutoUpdateEnabled) {
     const targetsAutoUpdateIntervalId = setInterval(async () => {
-      ctx.dispatch('setDefaultTargets')
+      await ctx.dispatch('setDefaultTargets')
 
       notifyPrimary(i18n('attackConfigPage.targetsAutoUpdate.notification'))
     }, targetsAutoUpdateInterval * 60 * 1000)
