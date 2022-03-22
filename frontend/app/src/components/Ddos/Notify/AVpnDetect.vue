@@ -18,12 +18,7 @@
 
     <template v-slot:action>
       <div class="flex column items-end">
-        <q-btn
-          @click="updateInfo"
-          :label="i18n('ipNotify.reloadBtnLabel')"
-          flat
-          :loading="loadingData"
-        />
+        <q-btn @click="updateInfo" :label="i18n('ipNotify.reloadBtnLabel')" flat :loading="loadingData" />
         <div v-if="updatedAt" class="text-grey">
           {{ i18n('ipNotify.updatedAtLabel') }}:
           {{ updatedAt }}
@@ -68,8 +63,7 @@ const updateInfo = async () => {
     dataIsLoaded.value = true
   }
 
-  showWarning.value =
-    resp.countryCode !== 'RU' && resp.countryCode !== 'BY'
+  showWarning.value = resp.countryCode !== 'RU' && resp.countryCode !== 'BY'
   ipInfo.push(
     ...[
       {

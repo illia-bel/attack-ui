@@ -1,13 +1,8 @@
 <template>
-  <a-card
-    class="col-12 q-mt-md"
-    :title="i18n('russianEmailsPage.pageTitle')"
-  >
+  <a-card class="col-12 q-mt-md" :title="i18n('russianEmailsPage.pageTitle')">
     <template #body>
       {{ i18n('russianEmailsPage.dataSourceLabel') }}:
-      <a
-        href="https://github.com/NIRVANA101/Russian-GBSB"
-        target="_blank"
+      <a href="https://github.com/NIRVANA101/Russian-GBSB" target="_blank"
         >https://github.com/NIRVANA101/Russian-GBSB</a
       >
     </template>

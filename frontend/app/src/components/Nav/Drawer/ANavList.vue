@@ -1,10 +1,6 @@
 <template>
   <q-list>
-    <template
-      v-for="(
-        { text, to, showRule, icon, type, itemsList }, key
-      ) in list"
-    >
+    <template v-for="({ text, to, showRule, icon, type, itemsList }, key) in list">
       <q-item
         v-if="showRule ? showRule() : true"
         :key="key + text"
@@ -25,24 +21,12 @@
             class="full-width text-weight-medium"
           >
             <q-list>
-              <template
-                v-for="(
-                  { text: itemLabel, to, showRule, icon },
-                  key
-                ) in itemsList"
-                :key="key + itemLabel"
-              >
-                <q-item
-                  v-if="showRule ? showRule() : true"
-                  :to="to"
-                  clickable
-                >
+              <template v-for="({ text: itemLabel, to, showRule, icon }, key) in itemsList" :key="key + itemLabel">
+                <q-item v-if="showRule ? showRule() : true" :to="to" clickable>
                   <q-item-section avatar>
                     <q-icon :name="icon" />
                   </q-item-section>
-                  <q-item-section
-                    class="text-weight-regular"
-                  >
+                  <q-item-section class="text-weight-regular">
                     {{ i18n(itemLabel) }}
                   </q-item-section>
                 </q-item>
@@ -84,11 +68,7 @@ const props = defineProps({
 onBeforeMount(() => {
   const currentPageName = route.name
   for (let i = 0; i < props.list.length; i++) {
-    const {
-      type: navItemType,
-      itemsList,
-      to,
-    } = props.list[i]
+    const { type: navItemType, itemsList, to } = props.list[i]
 
     // Если открытая сейчас страницв не вложенная - выходим
     if (to && to.name === currentPageName) {
@@ -101,11 +81,9 @@ onBeforeMount(() => {
     }
 
     // Ищем вложенный пункт где name === name текущей странице
-    const activeIndex = itemsList.find(
-      ({ to: { name } }) => {
-        return name === currentPageName
-      },
-    )
+    const activeIndex = itemsList.find(({ to: { name } }) => {
+      return name === currentPageName
+    })
 
     if (!activeIndex) {
       continue

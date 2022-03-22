@@ -27,10 +27,7 @@ export const removeTarget = (state, target) => {
  * Set targets to state
  * @param {Array} targets Target link/ip
  */
-export const setTargets = (
-  state,
-  { targets, callback },
-) => {
+export const setTargets = (state, { targets, callback }) => {
   // analytics.track('set-target')
 
   // Фильтрует цели на валидность
@@ -84,28 +81,30 @@ export const setInitTargets = (state, targets) => {
  * @param {Object} config User ddos config
  */
 export const setDdosConfig = (state, config) => {
-  for (const key in config) {
-    config[key] = Number(config[key])
+  state.config.user = {
+    ...state.config.user,
+    ...config,
   }
-
-  state.config.user = config
 }
 
 /**
  * Reset config ddos
  */
 export const resetDdosConfig = state => {
-  state.config.user = state.config.default
+  const { reqCount, intervalLength } = state.config.default
+
+  state.config.user = {
+    ...state.config.user,
+    intervalLength,
+    reqCount,
+  }
 }
 
 /**
  * Set common result browser attack
  * @param {String} type success, error
  */
-export const setCommonResultsBrowserAttack = (
-  state,
-  type,
-) => {
+export const setCommonResultsBrowserAttack = (state, type) => {
   state.commonResultsBrowserAttack[type]++
 }
 
@@ -153,4 +152,12 @@ export const setBrowserAttackStatus = (state, status) => {
  */
 export const setBrowserAttackIntervalId = (state, id) => {
   state.browserAttackIntervalId = id
+}
+
+/**
+ * Set Targets Auto-Update setInterval id
+ * @param {Number} id
+ */
+export const setTargetsAutoUpdateIntervalId = (state, id) => {
+  state.targetsAutoUpdateIntervalId = id
 }

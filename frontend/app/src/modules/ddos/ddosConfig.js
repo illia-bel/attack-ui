@@ -1,9 +1,6 @@
 // Ddos attack page functions
-
-import isURL from 'validator/lib/isURL'
+import { isURL } from 'src/modules/validate'
 import isIP from 'validator/lib/isIP'
-import { i18n } from 'src/modules/i18n'
-import { notifyError } from 'src/modules/notify'
 
 /**
  * Validate Target Item
@@ -23,4 +20,32 @@ export const validateTarget = (target, targetsList) => {
   }
 
   return true
+}
+
+/**
+ *
+ * @param {String} link
+ */
+export const validateTargetsSourceFile = async link => {
+  try {
+    const req = await fetch(link)
+    const targetsList = await req.json()
+
+    if (!Array.isArray(targetsList)) {
+      return
+    }
+
+    let errorsCount = 0
+    targetsList.forEach(target => {
+      if (isURL(target) || isIP(target)) {
+        return true
+      }
+
+      errorsCount++
+    })
+
+    return errorsCount === 0
+  } catch (error) {
+    console.error(error)
+  }
 }

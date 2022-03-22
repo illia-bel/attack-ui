@@ -45,10 +45,7 @@ export default boot(({ app }) => {
     const fetchedVersion = await fetchVersion()
 
     // Если новых обновлений нет
-    if (
-      Number(process.env.VERSION.replace(/\./g, '')) >=
-      Number(fetchedVersion.replace(/\./g, ''))
-    ) {
+    if (Number(process.env.VERSION.replace(/\./g, '')) >= Number(fetchedVersion.replace(/\./g, ''))) {
       return
     }
     updateAppConfirmDialog(fetchedVersion)

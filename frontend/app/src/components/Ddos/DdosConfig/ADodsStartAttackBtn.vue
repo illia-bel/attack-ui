@@ -1,9 +1,5 @@
 <template>
-  <q-btn
-    :label="label"
-    @click="startAttack"
-    color="primary"
-  />
+  <q-btn :label="label" @click="startAttack" color="primary" />
 </template>
 
 <script setup>

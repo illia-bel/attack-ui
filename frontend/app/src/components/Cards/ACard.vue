@@ -17,10 +17,7 @@
       <slot name="body" />
     </q-card-section>
 
-    <q-card-section
-      v-if="slots.actions"
-      :align="actionsAlign"
-    >
+    <q-card-section v-if="slots.actions" :align="actionsAlign">
       <slot name="actions" />
     </q-card-section>
   </q-card>

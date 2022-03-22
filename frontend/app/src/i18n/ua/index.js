@@ -9,8 +9,7 @@ export default {
     startBtnLabel: 'Почати',
     ddosAttackConfigureBtnLabel: 'Налаштувати атаку',
 
-    actionsHint:
-      'Зупинка/Початок може тривати до 1 хвилини',
+    actionsHint: 'Зупинка/Початок може тривати до 1 хвилини',
 
     statusTitle: 'Статус',
     attackActiveStatusLabel: 'Атака в процесі',
@@ -37,12 +36,14 @@ export default {
     connectionsTitle: 'Запити',
     reqCountFieldLabel: 'Ліміт запитів за інтервал',
     reqCountFieldHint: 'Рекомендована кількість - 100',
+    reqCountValidationHint: 'Мінимальна кількість запитів: 1',
 
     streamsCountLabel: 'Кількість потоків',
     streamsCountHint: 'У розробці',
 
     intervalTimeFieldLabel: 'Довжина інтервалу',
     intervalTimeFieldHint: 'У мілісекундах',
+    intervalTimeValidationHint: 'Мінімальна довжина інтервалу: 1',
 
     resetConfigBtnLabel: 'Відновити за замовчуванням',
     startAttackBtnLabel: 'Почати атаку',
@@ -51,25 +52,38 @@ export default {
 
     targetsCardTitle: 'Цілі',
     addTargetFieldLabel: 'Посилання або IP',
-    addTargetFieldHint:
-      'Ви можете вставити будь-який текст із посиланнями на цілі і ми автоматично знайдемо їх',
+    addTargetFieldHint: 'Ви можете вставити будь-який текст із посиланнями на цілі і ми автоматично знайдемо їх',
     addTargetBtnLabel: 'Додати',
     targetsAddListTitle: 'Cписок цілей, які будуть додані',
-    targetTooltipText:
-      'Натисніть, щоб відкрити нову вкладку',
+    targetTooltipText: 'Натисніть, щоб відкрити нову вкладку',
 
     invalidTargetNotify: 'Це не схоже на URL або IP адресу',
     tarjetaAreadyAddedNotify: 'Мета вже додана',
     targetAddedNotify: 'Ціль додана',
 
-    errorReqDefaultNotify:
-      'Помилка за запитом стандартних цілей',
+    errorReqDefaultNotify: 'Помилка за запитом стандартних цілей',
 
     attackStartedDialog: {
       title: 'Атака почалася',
       description:
         'Поки ви не натиснете кнопку "Стоп" або не закриєте вкладку, атака буде активною. Запуск може тривати до 1 хвилини',
       okBtnLabel: 'Ок',
+    },
+
+    targetsAutoUpdate: {
+      title: 'Автооновлення цілей',
+      notification: 'Ціли було успішно оновлено',
+      forceUpdateBtnLabel: 'Оновити зараз',
+
+      isEnabledFieldLabel: 'Увімкнено',
+      isEnabledFieldHint: 'Автоматично оновлювати список цілей',
+
+      intervalFieldLabel: 'Інтервал оновлення',
+      intervalFieldHint: 'Інтервал між скачуваннями (за замовчанням: 60)',
+      intervalValidationHint: 'Мінімальний період оновлення: 5 хвилин',
+
+      targetsFileUrlLabel: 'Посилання на файл',
+      targetsFileUrlHint: "Лінк на файл '.json' (масив)",
     },
   },
 
@@ -80,8 +94,7 @@ export default {
   },
 
   russianEmailsPage: {
-    pageTitle:
-      'Список E-mail російських сервісів та компаній',
+    pageTitle: 'Список E-mail російських сервісів та компаній',
     dataSourceLabel: 'Джерело',
   },
 
@@ -94,8 +107,7 @@ export default {
 
   updatesNotify: {
     title: 'Нова версія',
-    message:
-      'Ми випустили нову версію програми. Атака відновиться відразу після оновлення',
+    message: 'Ми випустили нову версію програми. Атака відновиться відразу після оновлення',
     okBtnLabel: 'Оновити зараз',
     cancelBtnLabel: 'Пізніше',
   },
@@ -116,8 +128,7 @@ export default {
     donatePage: 'Допомогти проекту',
   },
   ipNotify: {
-    title:
-      'Використовуйте VPN з російським або білоруським IP для більш ефективної атаки',
+    title: 'Використовуйте VPN з російським або білоруським IP для більш ефективної атаки',
     ipLabel: 'Ваш IP',
     countryLabel: 'IP знаходиться в',
     reloadBtnLabel: 'Оновити',

@@ -1,8 +1,5 @@
 <template>
-  <a-card
-    :title="i18n('attackConfigPage.targetsCardTitle')"
-    class="col-12"
-  >
+  <a-card :title="i18n('attackConfigPage.targetsCardTitle')" class="col-12">
     <template #body>
       <a-new-target-form />
       <a-targets-list />

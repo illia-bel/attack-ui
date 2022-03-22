@@ -34,7 +34,8 @@ export default {
     pageTitle: 'DDOS Configuration',
     connectionsTitle: 'Connections',
     reqCountFieldLabel: 'Request limit per interval',
-    reqCountFieldHint: 'Recommended quantity - 100',
+    reqCountFieldHint: 'Recommended quantity:  100',
+    reqCountValidationHint: 'Minimal request count: 1',
 
     streamsCountLabel: 'Streams count',
     streamsCountHint: 'In development',
@@ -43,31 +44,45 @@ export default {
     startAttackBtnLabel: 'Start attack',
 
     intervalTimeFieldLabel: 'Interval length',
-    intervalTimeFieldHint: 'In milliseconds',
+    intervalTimeFieldHint: 'In milliseconds (default: 300)',
+    intervalTimeValidationHint: 'Minimal interval value: 1',
 
     removeAllTargetsBtnLabel: 'Remove All Targets',
 
     targetsCardTitle: 'Targets',
     addTargetFieldLabel: 'Link/ip to target',
-    addTargetFieldHint:
-      'You can paste any text with links to targets and we will automatically find them',
+    addTargetFieldHint: 'You can paste any text with links to targets and we will automatically find them',
     addTargetBtnLabel: 'Add',
     targetsAddListTitle: 'Targets to be added',
     targetTooltipText: 'Click to open in a new tab',
 
-    invalidTargetNotify:
-      'It doesn`t look like a url or ip address',
+    invalidTargetNotify: 'It doesn`t look like a url or ip address',
     targetaAreadyAddedNotify: 'Target already added',
     targetAddedNotify: 'Target added',
 
-    errorReqDefaultNotify:
-      'Error requesting default targets',
+    errorReqDefaultNotify: 'Error requesting default targets',
 
     attackStartedDialog: {
       title: 'Attack started',
       description:
         'Until you press the "Stop" button or close the tab, the attack will be active. Startup may take up to 1 minute',
       okBtnLabel: 'Ok',
+    },
+
+    targetsAutoUpdate: {
+      title: 'Targets Auto-Update',
+      notification: 'Targets have been automatically updated',
+      forceUpdateBtnLabel: 'Update Now',
+
+      isEnabledFieldLabel: 'Enabled',
+      isEnabledFieldHint: 'Auto-Update target list',
+
+      intervalFieldLabel: 'Update interval',
+      intervalFieldHint: 'Interval between re-fetches (default: 60)',
+      intervalValidationHint: 'Minimal update interval: 5 minutes',
+
+      targetsFileUrlLabel: 'Targets File URL',
+      targetsFileUrlHint: "External link to '.json' (array) file",
     },
   },
 
@@ -78,8 +93,7 @@ export default {
   },
 
   russianEmailsPage: {
-    pageTitle:
-      'E-mail list of Russian services and companies',
+    pageTitle: 'E-mail list of Russian services and companies',
     dataSourceLabel: 'Source',
   },
 
@@ -92,8 +106,7 @@ export default {
 
   updatesNotify: {
     title: 'New Version',
-    message:
-      'We have released a new version of the application. The attack will resume immediately after the update',
+    message: 'We have released a new version of the application. The attack will resume immediately after the update',
     okBtnLabel: 'Update now',
     cancelBtnLabel: 'Later',
   },
@@ -114,8 +127,7 @@ export default {
     donatePage: 'Help the project',
   },
   ipNotify: {
-    title:
-      'Use VPN with Russian or Belarusian IP for more effective attack',
+    title: 'Use VPN with Russian or Belarusian IP for more effective attack',
     ipLabel: 'Your IP',
     countryLabel: 'IP Country',
     reloadBtnLabel: 'Reload',

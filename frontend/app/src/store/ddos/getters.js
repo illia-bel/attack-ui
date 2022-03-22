@@ -2,7 +2,7 @@
  * @returns {Array}
  */
 export const getTargetsList = state => {
-  return state.targetsList
+  return state.targetsList ?? []
 }
 
 /**
@@ -25,18 +25,17 @@ export const getResultsBrowserAttack = state => {
 export const getBrowserAttackStatus = state => {
   return state.browserAttackStatus
 }
+
 /**
  * @returns {Array}
  */
 export const getBrowserAttackResults = state => {
-  return Object.entries(state.resultsBrowserAttack).map(
-    ([target, result]) => {
-      return {
-        target,
-        ...result,
-      }
-    },
-  )
+  return Object.entries(state.resultsBrowserAttack).map(([target, result]) => {
+    return {
+      target,
+      ...result,
+    }
+  })
 }
 
 /**
@@ -51,4 +50,29 @@ export const getBrowserAttackIntervalId = state => {
  */
 export const getCommonResultsBrowserAttack = state => {
   return state.commonResultsBrowserAttack
+}
+
+/**
+ * Target Auto-Update getters
+ */
+export const getIsTargetsAutoUpdateEnabled = state => {
+  const { user: userConfig, default: defaultConfig } = state.config
+
+  return userConfig.isTargetsAutoUpdateEnabled ?? defaultConfig.isTargetsAutoUpdateEnabled
+}
+
+export const getTargetsAutoUpdateInterval = state => {
+  const { user: userConfig, default: defaultConfig } = state.config
+
+  return userConfig.targetsAutoUpdateInterval || defaultConfig.targetsAutoUpdateInterval
+}
+
+export const getTargetsFileUrl = state => {
+  const { user: userConfig, default: defaultConfig } = state.config
+
+  return userConfig.targetsFileUrl || defaultConfig.targetsFileUrl
+}
+
+export const getTargetsAutoUpdateIntervalId = state => {
+  return state.targetsAutoUpdateIntervalId
 }
