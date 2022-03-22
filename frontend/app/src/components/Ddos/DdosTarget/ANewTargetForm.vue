@@ -1,8 +1,5 @@
 <template>
-  <q-form
-    @submit="initSetTarget"
-    class="new-taget-form row items-start full-width"
-  >
+  <q-form @submit="initSetTarget" class="new-taget-form row items-start full-width">
     <q-input
       v-model="targetsListField"
       :label="i18n('attackConfigPage.addTargetFieldLabel')"
@@ -18,30 +15,15 @@
       type="submit"
     />
   </q-form>
-  <q-banner
-    v-if="targetsList.length > 1"
-    rounded
-    class="targets-to-add bg-blue-grey-1 q-mt-md"
-  >
-    <div class="text-bold">
-      {{ i18n('attackConfigPage.targetsAddListTitle') }}:
-    </div>
+  <q-banner v-if="targetsList.length > 1" rounded class="targets-to-add bg-blue-grey-1 q-mt-md">
+    <div class="text-bold">{{ i18n('attackConfigPage.targetsAddListTitle') }}:</div>
     <div class="row q-gutter-xs q-mt-sm">
-      <div
-        v-for="(target, key) in targetsList"
-        :key="key + target"
-        class="q-gutter-xs"
-      >
+      <div v-for="(target, key) in targetsList" :key="key + target" class="q-gutter-xs">
         <q-chip outline color="dark">{{ target }}</q-chip>
       </div>
     </div>
 
-    <q-btn
-      :label="i18n('attackConfigPage.addTargetBtnLabel')"
-      color="dark"
-      class="q-mt-sm"
-      @click="initSetTarget"
-    />
+    <q-btn :label="i18n('attackConfigPage.addTargetBtnLabel')" color="dark" class="q-mt-sm" @click="initSetTarget" />
   </q-banner>
 </template>
 

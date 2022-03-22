@@ -1,8 +1,5 @@
 <template>
-  <a-card
-    :title="i18n('attackPage.resultsCardTitle')"
-    class="col-12"
-  >
+  <a-card :title="i18n('attackPage.resultsCardTitle')" class="col-12">
     <template #body>
       <a-ddos-total-results />
       <div class="q-mt-md">
@@ -16,13 +13,7 @@
           :disable="stateBulkRemoveTargetsBtn"
         />
       </div>
-      <q-table
-        :rows="resultsList"
-        :columns="columns"
-        flat
-        :pagination="{ rowsPerPage: 100 }"
-        class="q-mt-sm"
-      >
+      <q-table :rows="resultsList" :columns="columns" flat :pagination="{ rowsPerPage: 100 }" class="q-mt-sm">
         <template #header-cell-select>
           <q-th class="text-left">
             <q-checkbox v-model="toggleAllTargets" />
@@ -30,9 +21,7 @@
         </template>
         <template #body-cell-select="{ row: { target } }">
           <q-td>
-            <q-checkbox
-              v-model="selectedTargetsModel[target]"
-            />
+            <q-checkbox v-model="selectedTargetsModel[target]" />
           </q-td>
         </template>
         <template #body-cell-ping="{ row: { target } }">
@@ -66,8 +55,7 @@ const store = useStore()
 const seletedTargetsIsInit = ref(false)
 
 const resultsList = computed(() => {
-  const results =
-    store.getters['ddos/getBrowserAttackResults']
+  const results = store.getters['ddos/getBrowserAttackResults']
 
   if (!seletedTargetsIsInit.value) {
     // Ставим дефолтное значение для selectedTargetsModel
@@ -125,20 +113,16 @@ const columns = [
 // Переключить все цели
 const toggleAllTargets = ref(false)
 watch(toggleAllTargets, state => {
-  Object.entries(selectedTargetsModel).forEach(
-    ([target]) => {
-      selectedTargetsModel[target] = state
-    },
-  )
+  Object.entries(selectedTargetsModel).forEach(([target]) => {
+    selectedTargetsModel[target] = state
+  })
 })
 
 const selectedTargets = computed(() => {
   const result = []
-  Object.entries(selectedTargetsModel).forEach(
-    ([target, selected]) => {
-      if (selected) result.push(target)
-    },
-  )
+  Object.entries(selectedTargetsModel).forEach(([target, selected]) => {
+    if (selected) result.push(target)
+  })
 
   return result
 })

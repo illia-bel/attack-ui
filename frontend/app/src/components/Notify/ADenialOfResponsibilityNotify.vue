@@ -1,8 +1,5 @@
 <template>
-  <q-banner
-    v-if="showWarning"
-    class="bg-amber-1 text-amber-14"
-  >
+  <q-banner v-if="showWarning" class="bg-amber-1 text-amber-14">
     {{ i18n('denialOfResponsibilityWarning.message') }}
 
     <template v-slot:action>
@@ -10,9 +7,7 @@
         @click="hideNotify"
         flat
         color="amber-14"
-        :label="
-          i18n('denialOfResponsibilityWarning.okBtnLabel')
-        "
+        :label="i18n('denialOfResponsibilityWarning.okBtnLabel')"
         no-caps
       />
     </template>
@@ -25,21 +20,14 @@ import { useI18n } from 'vue-i18n'
 
 const { t: i18n } = useI18n()
 
-let storageWarningData = localStorage.getItem(
-  'denialOfResponsibilityWarningShow',
-)
+let storageWarningData = localStorage.getItem('denialOfResponsibilityWarningShow')
 
-storageWarningData = storageWarningData
-  ? !!Number(storageWarningData)
-  : true
+storageWarningData = storageWarningData ? !!Number(storageWarningData) : true
 
 const showWarning = ref(storageWarningData !== false)
 
 const hideNotify = () => {
-  localStorage.setItem(
-    'denialOfResponsibilityWarningShow',
-    0,
-  )
+  localStorage.setItem('denialOfResponsibilityWarningShow', 0)
 
   showWarning.value = false
 }

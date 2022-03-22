@@ -1,9 +1,7 @@
 <template>
   <q-btn
     v-if="targetsListLength > 0"
-    :label="
-      i18n('attackConfigPage.removeAllTargetsBtnLabel')
-    "
+    :label="i18n('attackConfigPage.removeAllTargetsBtnLabel')"
     color="red"
     flat
     @click="removeAllTargets"

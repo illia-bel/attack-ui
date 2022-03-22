@@ -1,11 +1,5 @@
 <template>
-  <q-drawer
-    v-model="leftDrawerState"
-    show-if-above
-    side="left"
-    :width="280"
-    bordered
-  >
+  <q-drawer v-model="leftDrawerState" show-if-above side="left" :width="280" bordered>
     <a-nav-list :list="navList" />
     <a-denial-of-responsibility-notify class="q-mt-lg" />
   </q-drawer>

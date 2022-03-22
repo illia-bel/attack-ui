@@ -18,10 +18,7 @@ const confirmReqTarget = target => {
     return true
   }
 
-  let confirmResult = !(
-    ignoreTargetsList[target]['success'] === 0 &&
-    ignoreTargetsList[target]['error'] > 30
-  )
+  let confirmResult = !(ignoreTargetsList[target]['success'] === 0 && ignoreTargetsList[target]['error'] > 30)
 
   // Если количсво отклоненных запросов больше чем resetErrorsCount
   // сбрасываем все ошбки до 0 для конкретной цели
@@ -31,20 +28,12 @@ const confirmReqTarget = target => {
   const resetErrorsCount = 200
 
   // Если запрос отклонен и unconfirmCount не превышает resetErrorsCount
-  if (
-    !confirmResult &&
-    ignoreTargetsList[target].unconfirmCount <=
-      resetErrorsCount
-  ) {
+  if (!confirmResult && ignoreTargetsList[target].unconfirmCount <= resetErrorsCount) {
     ignoreTargetsList[target].unconfirmCount++
   }
 
   // Если запрос отклонен и unconfirmCount превышает resetErrorsCount
-  else if (
-    !confirmResult &&
-    ignoreTargetsList[target].unconfirmCount >
-      resetErrorsCount
-  ) {
+  else if (!confirmResult && ignoreTargetsList[target].unconfirmCount > resetErrorsCount) {
     ignoreTargetsList[target].error = 0
     confirmResult = true
   }
@@ -86,10 +75,7 @@ export const initSendReqests = async (targetsList, ctx) => {
 
         // needed to interrupt the request
         const controller = new AbortController()
-        const timeoutId = setTimeout(
-          () => controller.abort(),
-          10000,
-        )
+        const timeoutId = setTimeout(() => controller.abort(), 10000)
 
         fetch(target, {
           method: 'GET',
@@ -114,10 +100,7 @@ export const initSendReqests = async (targetsList, ctx) => {
             }
 
             // if this is not the last request - return
-            if (
-              Object.keys(results).length !==
-              targetsListReqs.length
-            ) {
+            if (Object.keys(results).length !== targetsListReqs.length) {
               return
             }
 
@@ -135,14 +118,8 @@ export const initSendReqests = async (targetsList, ctx) => {
  */
 export const startAttackNotify = () => {
   confirmDialog({
-    title: i18n(
-      'attackConfigPage.attackStartedDialog.title',
-    ),
-    message: i18n(
-      'attackConfigPage.attackStartedDialog.description',
-    ),
-    okLabel: i18n(
-      'attackConfigPage.attackStartedDialog.okBtnLabel',
-    ),
+    title: i18n('attackConfigPage.attackStartedDialog.title'),
+    message: i18n('attackConfigPage.attackStartedDialog.description'),
+    okLabel: i18n('attackConfigPage.attackStartedDialog.okBtnLabel'),
   })
 }

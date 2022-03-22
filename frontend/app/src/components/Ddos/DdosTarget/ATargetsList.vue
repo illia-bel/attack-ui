@@ -1,17 +1,8 @@
 <template>
   <!-- Targets List Chips -->
   <div class="row q-gutter-xs q-mt-lg">
-    <div
-      v-for="(target, key) in targetsList"
-      :key="key + target"
-      class="q-gutter-xs"
-    >
-      <q-chip
-        removable
-        outline
-        color="primary"
-        @remove="removeTarget(target)"
-      >
+    <div v-for="(target, key) in targetsList" :key="key + target" class="q-gutter-xs">
+      <q-chip removable outline color="primary" @remove="removeTarget(target)">
         <q-tooltip>
           {{ i18n('attackConfigPage.targetTooltipText') }}
         </q-tooltip>
@@ -30,18 +21,14 @@ const { t: i18n } = useI18n()
 const store = useStore()
 
 onBeforeMount(() => {
-  store.dispatch('ddos/setDefaultTargets')
+  !targetsList.value.length && store.dispatch('ddos/setDefaultTargets')
 })
 
 /**
  * Remove one target item
  * @param {Number} index index target item in array
  */
-const removeTarget = target => {
-  store.commit('ddos/removeTarget', target)
-}
+const removeTarget = target => store.commit('ddos/removeTarget', target)
 
-const targetsList = computed(() => {
-  return store.getters['ddos/getTargetsList']
-})
+const targetsList = computed(() => store.getters['ddos/getTargetsList'])
 </script>

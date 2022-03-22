@@ -1,13 +1,7 @@
 <template>
   <q-header reveal bordered class="bg-primary text-white">
     <q-toolbar>
-      <q-btn
-        dense
-        flat
-        round
-        icon="menu"
-        @click="toggleLeftDrawer"
-      />
+      <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
 
       <q-toolbar-title>
         <a-logo />
@@ -15,9 +9,7 @@
       <q-separator vertical spaced="lg" />
       <a-locale-change color="white" />
       <q-separator vertical spaced="lg" />
-      <a href="https://t.me/attack_ui_bot" target="_blank"
-        >Support</a
-      >
+      <a href="https://t.me/attack_ui_bot" target="_blank">Support</a>
     </q-toolbar>
   </q-header>
 </template>
