@@ -6,12 +6,7 @@ import { Dialog } from 'quasar'
  * @param {String} message
  * @returns {Boolean} true - подверждение , false - отказ
  */
-export const confirmDialog = async ({
-  title,
-  message,
-  okLabel,
-  cancelLabel,
-}) => {
+export const confirmDialog = async ({ title, message, okLabel, cancelLabel }) => {
   return await new Promise(resolve => {
     Dialog.create({
       title,

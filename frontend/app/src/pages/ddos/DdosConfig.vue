@@ -1,17 +1,10 @@
 <template>
-  <a-card
-    class="col-12"
-    :title="i18n('attackConfigPage.pageTitle')"
-  >
+  <a-card class="col-12" :title="i18n('attackConfigPage.pageTitle')">
     <template #body>
       <a-vpn-detect />
     </template>
     <template #actions>
-      <a-dods-start-attack-btn
-        :label="
-          i18n('attackConfigPage.startAttackBtnLabel')
-        "
-      />
+      <a-dods-start-attack-btn :label="i18n('attackConfigPage.startAttackBtnLabel')" />
     </template>
   </a-card>
 

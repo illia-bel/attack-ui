@@ -2,8 +2,8 @@
  * Fetch targets for attack
  * @returns {Object}
  */
-export const fetchTargets = async (targetsFileUrl) => {
-  const req  = await fetch(targetsFileUrl)
+export const fetchTargets = async targetsFileUrl => {
+  const req = await fetch(targetsFileUrl)
   const resp = await req.json()
 
   return resp ?? []

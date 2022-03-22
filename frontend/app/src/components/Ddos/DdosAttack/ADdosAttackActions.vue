@@ -1,19 +1,9 @@
 <template>
   <div class="row column items-end">
     <template v-if="showActions">
-      <q-btn
-        v-if="attackStatus"
-        @click="destroyAttack"
-        :label="i18n('attackPage.stopBtnLabel')"
-        color="negative"
-      />
+      <q-btn v-if="attackStatus" @click="destroyAttack" :label="i18n('attackPage.stopBtnLabel')" color="negative" />
 
-      <q-btn
-        v-else
-        @click="initAttack"
-        :label="i18n('attackPage.startBtnLabel')"
-        color="primary"
-      />
+      <q-btn v-else @click="initAttack" :label="i18n('attackPage.startBtnLabel')" color="primary" />
       <span class="text-grey q-mt-xs">
         {{ i18n('attackPage.actionsHint') }}
       </span>
@@ -22,9 +12,7 @@
     <q-btn
       v-else
       :to="{ name: 'DdosConfig' }"
-      :label="
-        i18n('attackPage.ddosAttackConfigureBtnLabel')
-      "
+      :label="i18n('attackPage.ddosAttackConfigureBtnLabel')"
       color="primary"
     />
   </div>

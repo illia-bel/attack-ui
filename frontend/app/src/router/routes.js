@@ -28,8 +28,7 @@ const routes = [
           {
             name: 'DdosConfig',
             path: 'ddos/config',
-            component: () =>
-              import('pages/ddos/DdosConfig'),
+            component: () => import('pages/ddos/DdosConfig'),
             meta: {
               seo: {
                 title: 'Config ddos',
@@ -39,8 +38,7 @@ const routes = [
           {
             name: 'DdosAttack',
             path: 'ddos/start',
-            component: () =>
-              import('pages/ddos/DdosAttack'),
+            component: () => import('pages/ddos/DdosAttack'),
             meta: {
               seo: {
                 title: 'Dashboard ddos',
@@ -50,8 +48,7 @@ const routes = [
           {
             name: 'DdosDock',
             path: 'dock/ddos',
-            component: () =>
-              import('pages/ddos/dock/DdosDock'),
+            component: () => import('pages/ddos/dock/DdosDock'),
             meta: {
               seo: {
                 title: 'Dock ddos',
@@ -81,15 +78,13 @@ const routes = [
       {
         name: 'RussianDataLayout',
         path: '/ru-data',
-        component: () =>
-          import('layouts/RussianDataLayout'),
+        component: () => import('layouts/RussianDataLayout'),
         children: [
           // RussianEmails
           {
             name: 'RussianEmails',
             path: 'emails',
-            component: () =>
-              import('pages/RussianData/RussianEmails'),
+            component: () => import('pages/RussianData/RussianEmails'),
             meta: {
               seo: {
                 title: 'Russian Emails',
@@ -109,10 +104,7 @@ const routes = [
         next()
         return
       }
-      console.log(
-        'to.fullPath.substring(1) = ',
-        to.fullPath.substring(1),
-      )
+      console.log('to.fullPath.substring(1) = ', to.fullPath.substring(1))
       window.open(to.fullPath.substring(1))
     },
     meta: {

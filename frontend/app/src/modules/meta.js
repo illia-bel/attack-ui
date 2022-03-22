@@ -6,7 +6,5 @@
  */
 export const useMeta = ({ title }) => {
   //
-  document.title = `${title || ''} ${title ? '-' : ''} ${
-    process.env.BRAND_NAME
-  }`
+  document.title = `${title || ''} ${title ? '-' : ''} ${process.env.BRAND_NAME}`
 }

@@ -1,8 +1,5 @@
 <template>
-  <a-card
-    class="col-12"
-    :title="i18n('attackPage.pageTitle')"
-  >
+  <a-card class="col-12" :title="i18n('attackPage.pageTitle')">
     <template #body>
       {{ i18n('attackPage.statusTitle') }}:
       <span
@@ -11,9 +8,7 @@
           'text-positive': attackStatus,
         }"
         >{{
-          attackStatus
-            ? i18n('attackPage.attackActiveStatusLabel')
-            : i18n('attackPage.attackStoppedStatusLabel')
+          attackStatus ? i18n('attackPage.attackActiveStatusLabel') : i18n('attackPage.attackStoppedStatusLabel')
         }}</span
       >
     </template>

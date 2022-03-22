@@ -10,6 +10,9 @@
 *.lock
 *.ico
 *.txt
+*.mp4
+*.icns
+*.log
 .gitignore
 .browserslistrc
 .gitattributes
@@ -17,3 +20,4 @@
 .DS_Store
 .editorconfig
 .gitkeep
+.htaccess

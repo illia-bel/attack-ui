@@ -29,14 +29,12 @@ export const getBrowserAttackStatus = state => {
  * @returns {Array}
  */
 export const getBrowserAttackResults = state => {
-  return Object.entries(state.resultsBrowserAttack).map(
-    ([target, result]) => {
-      return {
-        target,
-        ...result,
-      }
-    },
-  )
+  return Object.entries(state.resultsBrowserAttack).map(([target, result]) => {
+    return {
+      target,
+      ...result,
+    }
+  })
 }
 
 /**

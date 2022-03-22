@@ -3,10 +3,7 @@ import { createI18n } from 'vue-i18n'
 import messages from 'src/i18n'
 import i18nLocales from 'src/i18n'
 
-let userLang =
-  localStorage.getItem('lang') ||
-  navigator.language ||
-  navigator.userLanguage
+let userLang = localStorage.getItem('lang') || navigator.language || navigator.userLanguage
 
 if (Object.keys(i18nLocales).indexOf(userLang) === -1) {
   userLang = 'en'

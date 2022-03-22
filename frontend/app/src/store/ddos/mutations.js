@@ -27,10 +27,7 @@ export const removeTarget = (state, target) => {
  * Set targets to state
  * @param {Array} targets Target link/ip
  */
-export const setTargets = (
-  state,
-  { targets, callback },
-) => {
+export const setTargets = (state, { targets, callback }) => {
   // analytics.track('set-target')
 
   // Фильтрует цели на валидность
@@ -86,7 +83,7 @@ export const setInitTargets = (state, targets) => {
 export const setDdosConfig = (state, config) => {
   state.config.user = {
     ...state.config.user,
-    ...config
+    ...config,
   }
 }
 
@@ -107,10 +104,7 @@ export const resetDdosConfig = state => {
  * Set common result browser attack
  * @param {String} type success, error
  */
-export const setCommonResultsBrowserAttack = (
-  state,
-  type,
-) => {
+export const setCommonResultsBrowserAttack = (state, type) => {
   state.commonResultsBrowserAttack[type]++
 }
 

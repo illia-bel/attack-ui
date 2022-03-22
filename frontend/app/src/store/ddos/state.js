@@ -7,9 +7,9 @@ export default function () {
         reqCount: 100, // per sec
         intervalLength: 300, // ms
 
-        isTargetsAutoUpdateEnabled : true,
-        targetsAutoUpdateInterval  : 60, // minutes
-        targetsFileUrl             : 'targets.json',
+        isTargetsAutoUpdateEnabled: true,
+        targetsAutoUpdateInterval: 60, // minutes
+        targetsFileUrl: 'targets.json',
       },
     },
 

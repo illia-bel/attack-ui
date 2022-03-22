@@ -16,21 +16,11 @@
     />
   </div>
   <div class="q-mt-sm">
-    <a
-      v-if="sourceLink"
-      :href="sourceLink"
-      target="_blank"
-      class="text-primary"
-    >
+    <a v-if="sourceLink" :href="sourceLink" target="_blank" class="text-primary">
       {{ i18n('russianDataPage.openJsonBtn') }}
     </a>
   </div>
-  <q-input
-    v-model="formattedData"
-    autogrow
-    borderless
-    :class="dataInputId"
-  />
+  <q-input v-model="formattedData" autogrow borderless :class="dataInputId" />
 </template>
 
 <script setup>
@@ -57,9 +47,7 @@ const dataInputId = ref('data-input-' + Date.now())
 const dataSeparatorValue = ref('\n')
 
 // Данные приведенные к единому формату
-const formattedData = ref(
-  props.dataList.join(dataSeparatorValue.value),
-)
+const formattedData = ref(props.dataList.join(dataSeparatorValue.value))
 
 // следит за обновлением списка данных
 watch(props.dataList, val => {
@@ -76,9 +64,7 @@ watch(dataSeparatorValue, separator => {
  */
 const copyData = () => {
   /* Get the text field */
-  const copyText = document.querySelector(
-    `.${dataInputId.value} textarea`,
-  )
+  const copyText = document.querySelector(`.${dataInputId.value} textarea`)
 
   if (!copyText) {
     return
@@ -86,10 +72,7 @@ const copyData = () => {
 
   /* Select the text field */
   copyText.select()
-  copyText.setSelectionRange(
-    0,
-    9999999,
-  ) /* For mobile devices */
+  copyText.setSelectionRange(0, 9999999) /* For mobile devices */
 
   /* Copy the text inside the text field */
   navigator.clipboard.writeText(copyText.value)

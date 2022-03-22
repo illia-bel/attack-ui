@@ -1,10 +1,10 @@
-import { boot }          from 'quasar/wrappers'
-import { i18n }          from 'src/modules/i18n'
+import { boot } from 'quasar/wrappers'
+import { i18n } from 'src/modules/i18n'
 import { notifyPrimary } from 'src/modules/notify'
 
 export default boot(({ store }) => {
   const isTargetsAutoUpdateEnabled = store.getters['ddos/getIsTargetsAutoUpdateEnabled']
-  const targetsAutoUpdateInterval  = store.getters['ddos/getTargetsAutoUpdateInterval']
+  const targetsAutoUpdateInterval = store.getters['ddos/getTargetsAutoUpdateInterval']
 
   if (!isTargetsAutoUpdateEnabled) return
 

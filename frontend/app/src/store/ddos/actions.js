@@ -1,8 +1,5 @@
 import { fetchTargets } from 'src/modules/api'
-import {
-  initSendReqests,
-  startAttackNotify,
-} from 'src/modules/ddos/ddosAttack'
+import { initSendReqests, startAttackNotify } from 'src/modules/ddos/ddosAttack'
 import { notifyError } from 'src/modules/notify'
 // import { analytics } from 'src/modules/analytics'
 import { i18n } from 'src/modules/i18n'
@@ -16,9 +13,7 @@ export const setDefaultTargets = async ctx => {
 
     ctx.commit('setInitTargets', respTargets)
   } catch (error) {
-    notifyError(
-      i18n('attackConfigPage.errorReqDefaultNotify'),
-    )
+    notifyError(i18n('attackConfigPage.errorReqDefaultNotify'))
     console.error(error)
   }
 }
@@ -35,8 +30,7 @@ export const initBrowserAttack = ctx => {
     return
   }
 
-  const lastIntervalId =
-    ctx.getters.getBrowserAttackIntervalId
+  const lastIntervalId = ctx.getters.getBrowserAttackIntervalId
 
   // Change attack status to active
   ctx.commit('setBrowserAttackStatus', true)
@@ -52,8 +46,7 @@ export const initBrowserAttack = ctx => {
       const targets = ctx.getters.getTargetsList
 
       // Generate from/to for user param reqCount
-      const from =
-        lastIndex >= targets.length ? 0 : lastIndex + 1
+      const from = lastIndex >= targets.length ? 0 : lastIndex + 1
       const to = from + config.reqCount
       lastIndex = to
 
@@ -72,17 +65,12 @@ export const initBrowserAttack = ctx => {
       // }
 
       // Send requests array
-      const respList = await initSendReqests(
-        targetsListForReq,
-        ctx,
-      )
+      const respList = await initSendReqests(targetsListForReq, ctx)
 
       // write reqs resultst to store
       ctx.commit('setResultsBrowserAttack', respList)
     },
-    Number(config.intervalLength)
-      ? Number(config.intervalLength)
-      : 1000,
+    Number(config.intervalLength) ? Number(config.intervalLength) : 1000,
   )
 
   // set setInterval id ti store
@@ -101,8 +89,7 @@ export const initBrowserAttack = ctx => {
  */
 export const destroyBrowserAttack = ctx => {
   // analytics.track('destroy-browser-ddos')
-  const reqIntevalId =
-    ctx.getters.getBrowserAttackIntervalId
+  const reqIntevalId = ctx.getters.getBrowserAttackIntervalId
 
   clearInterval(reqIntevalId)
   ctx.commit('setBrowserAttackIntervalId', null)
