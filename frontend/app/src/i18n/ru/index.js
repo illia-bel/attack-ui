@@ -82,7 +82,7 @@ export default {
       intervalValidationHint: 'Минимальный интервал обновления: 5 минут',
 
       targetsFileUrlLabel: 'Ссылка на файл',
-      targetsFileUrlHint: "Относительный путь в public папке или внешняя ссылка на файл 'targets.json'",
+      targetsFileUrlHint: "Внешняя ссылка на файл '.json' (массив)",
     },
   },
   donatePage: {

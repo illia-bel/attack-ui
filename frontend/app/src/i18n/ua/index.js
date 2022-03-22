@@ -81,8 +81,8 @@ export default {
       intervalFieldHint: 'Інтервал між скачуваннями (за замовчанням: 60)',
       intervalValidationHint: 'Мінімальний період оновлення: 5 хвилин',
 
-      targetsFileUrlLabel: 'Ссилка на файл',
-      targetsFileUrlHint: "Відносний шлях у директорії public або зовнішній лінк на файл 'targets.json'",
+      targetsFileUrlLabel: 'Посилання на файл',
+      targetsFileUrlHint: "Лінк на файл '.json' (масив)",
     },
   },
 

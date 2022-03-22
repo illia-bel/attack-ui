@@ -81,7 +81,7 @@ export default {
       intervalValidationHint: 'Minimal update interval: 5 minutes',
 
       targetsFileUrlLabel: 'Targets File URL',
-      targetsFileUrlHint: "Relative path inside public folder or external link to 'targets.json' file",
+      targetsFileUrlHint: "External link to '.json' (array) file",
     },
   },
 
