@@ -104,7 +104,6 @@ const routes = [
         next()
         return
       }
-      console.log('to.fullPath.substring(1) = ', to.fullPath.substring(1))
       window.open(to.fullPath.substring(1))
     },
     meta: {

@@ -41,12 +41,9 @@ export const validateTargetsSourceFile = async link => {
         return true
       }
 
-      console.log('target = ', target, isURL(target))
-
       errorsCount++
     })
 
-    console.log('errorsCount = ', errorsCount)
     return errorsCount === 0
   } catch (error) {
     console.error(error)
