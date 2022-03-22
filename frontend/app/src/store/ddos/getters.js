@@ -2,7 +2,7 @@
  * @returns {Array}
  */
 export const getTargetsList = state => {
-  return state.targetsList
+  return state.targetsList ?? []
 }
 
 /**
