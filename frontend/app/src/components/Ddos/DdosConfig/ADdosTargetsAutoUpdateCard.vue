@@ -4,7 +4,7 @@
       <q-form class="row q-gutter-md ddos-targets-auto-update-card">
         <q-toggle
           type="boolean"
-          color="green"
+          color="primary"
           class="col"
           v-model="formData.isTargetsAutoUpdateEnabled"
           :label="i18n('attackConfigPage.targetsAutoUpdate.isEnabledFieldLabel')"
@@ -24,9 +24,9 @@
 
         <q-input
           type="text"
-          class="col-12"
+          class="col-12 q-pr-md"
           debounce="500"
-          v-model="formData.targetsFileUrl"
+          v-model="targetsFileUrlModel"
           :label="i18n('attackConfigPage.targetsAutoUpdate.targetsFileUrlLabel')"
           :hint="i18n('attackConfigPage.targetsAutoUpdate.targetsFileUrlHint')"
         />
@@ -36,9 +36,11 @@
 </template>
 
 <script setup>
-import { reactive, onBeforeMount, watch } from 'vue'
+import { reactive, watch, computed } from 'vue'
 import { useStore } from 'vuex'
 import { useI18n } from 'vue-i18n'
+import { validateTargetsSourceFile } from 'src/modules/ddos/ddosConfig'
+import { notifyError } from 'src/modules/notify'
 
 import ACard from 'src/components/Cards/ACard'
 
@@ -53,6 +55,21 @@ const formData = reactive({
   isTargetsAutoUpdateEnabled,
   targetsAutoUpdateInterval,
   targetsFileUrl,
+})
+
+const targetsFileUrlModel = computed({
+  get() {
+    const link = formData.targetsFileUrl
+    return link === 'targets.json' ? 'https://war.apexi.tech/' + link : link
+  },
+  async set(link) {
+    if (!(await validateTargetsSourceFile(link))) {
+      notifyError('Error')
+      return
+    }
+
+    formData.targetsFileUrl = link
+  },
 })
 
 watch(formData, ({ isTargetsAutoUpdateEnabled, targetsAutoUpdateInterval, targetsFileUrl }) => {
