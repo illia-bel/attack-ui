@@ -73,6 +73,7 @@ export default {
     targetsAutoUpdate: {
       title: 'Автооновлення цілей',
       notification: 'Ціли було успішно оновлено',
+      forceUpdateBtnLabel: 'Оновити зараз',
 
       isEnabledFieldLabel: 'Увімкнено',
       isEnabledFieldHint: 'Автоматично оновлювати список цілей',

@@ -155,7 +155,7 @@ export const setBrowserAttackIntervalId = (state, id) => {
 }
 
 /**
- * Set Targets AutoUpdate setInterval id
+ * Set Targets Auto-Update setInterval id
  * @param {Number} id
  */
 export const setTargetsAutoUpdateIntervalId = (state, id) => {

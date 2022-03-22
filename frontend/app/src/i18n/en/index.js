@@ -72,6 +72,7 @@ export default {
     targetsAutoUpdate: {
       title: 'Targets Auto-Update',
       notification: 'Targets have been automatically updated',
+      forceUpdateBtnLabel: 'Update Now',
 
       isEnabledFieldLabel: 'Enabled',
       isEnabledFieldHint: 'Auto-Update target list',

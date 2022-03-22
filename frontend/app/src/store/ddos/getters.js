@@ -25,6 +25,7 @@ export const getResultsBrowserAttack = state => {
 export const getBrowserAttackStatus = state => {
   return state.browserAttackStatus
 }
+
 /**
  * @returns {Array}
  */
@@ -51,6 +52,9 @@ export const getCommonResultsBrowserAttack = state => {
   return state.commonResultsBrowserAttack
 }
 
+/**
+ * Target Auto-Update getters
+ */
 export const getIsTargetsAutoUpdateEnabled = state => {
   const { user: userConfig, default: defaultConfig } = state.config
 

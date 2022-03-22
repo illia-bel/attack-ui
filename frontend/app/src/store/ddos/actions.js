@@ -82,6 +82,8 @@ export const initBrowserAttack = ctx => {
       startAttackNotify()
     }, 1000)
   }
+
+  ctx.dispatch('initTargetsAutoUpdateInterval')
 }
 
 /**
@@ -94,26 +96,54 @@ export const destroyBrowserAttack = ctx => {
   clearInterval(reqIntevalId)
   ctx.commit('setBrowserAttackIntervalId', null)
   ctx.commit('setBrowserAttackStatus', false)
+
+  ctx.dispatch('destroyTargetsAutoUpdateInterval')
 }
 
-export const setTargetsUpdateSettings = (ctx, settings) => {
-  const targetsUpdateIntervalId = ctx.getters.getBrowserAttackIntervalId
+/**
+ * Initialize Targets Auto-Update task
+ */
+export const initTargetsAutoUpdateInterval = ctx => {
+  const isBrowserAttackStarted = ctx.getters.getBrowserAttackStatus
+  const isTargetsAutoUpdateEnabled = ctx.getters.getIsTargetsAutoUpdateEnabled
+  const targetsAutoUpdateInterval = ctx.getters.getTargetsAutoUpdateInterval
+
+  if (!isBrowserAttackStarted || !isTargetsAutoUpdateEnabled || !targetsAutoUpdateInterval) return
+
+  const targetsUpdateIntervalId = ctx.getters.getTargetsAutoUpdateIntervalId
+  targetsUpdateIntervalId && clearInterval(targetsUpdateIntervalId)
+
+  const intervalId = setInterval(async () => {
+    await ctx.dispatch('setDefaultTargets')
+
+    notifyPrimary(i18n('attackConfigPage.targetsAutoUpdate.notification'))
+  }, targetsAutoUpdateInterval * 60 * 1000)
+
+  ctx.commit('setTargetsAutoUpdateIntervalId', intervalId)
+}
+
+/**
+ * Destroy Targets Auto-Update task
+ */
+export const destroyTargetsAutoUpdateInterval = ctx => {
+  const targetsUpdateIntervalId = ctx.getters.getTargetsAutoUpdateIntervalId
 
   targetsUpdateIntervalId && clearInterval(targetsUpdateIntervalId)
 
+  ctx.commit('setTargetsAutoUpdateIntervalId', null)
+}
+
+/**
+ * Handle Targets Auto-Update settings
+ */
+export const setTargetsUpdateSettings = (ctx, settings) => {
+  ctx.commit('setDdosConfig', settings)
+
   const { isTargetsAutoUpdateEnabled, targetsAutoUpdateInterval } = settings
 
-  if (isTargetsAutoUpdateEnabled) {
-    const targetsAutoUpdateIntervalId = setInterval(async () => {
-      await ctx.dispatch('setDefaultTargets')
-
-      notifyPrimary(i18n('attackConfigPage.targetsAutoUpdate.notification'))
-    }, targetsAutoUpdateInterval * 60 * 1000)
-
-    ctx.commit('setTargetsAutoUpdateIntervalId', targetsAutoUpdateIntervalId)
+  if (isTargetsAutoUpdateEnabled && targetsAutoUpdateInterval) {
+    ctx.dispatch('initTargetsAutoUpdateInterval')
   } else {
-    ctx.commit('setTargetsAutoUpdateIntervalId', null)
+    ctx.dispatch('destroyTargetsAutoUpdateInterval')
   }
-
-  ctx.commit('setDdosConfig', settings)
 }

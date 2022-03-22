@@ -32,6 +32,15 @@
         />
       </q-form>
     </template>
+
+    <template #actions>
+      <q-btn
+        flat
+        color="red"
+        @click="fetchTargets"
+        :label="i18n('attackConfigPage.targetsAutoUpdate.forceUpdateBtnLabel')"
+      />
+    </template>
   </a-card>
 </template>
 
@@ -79,4 +88,8 @@ watch(formData, ({ isTargetsAutoUpdateEnabled, targetsAutoUpdateInterval, target
     targetsFileUrl,
   })
 })
+
+const fetchTargets = () => {
+  store.dispatch('ddos/setDefaultTargets')
+}
 </script>
