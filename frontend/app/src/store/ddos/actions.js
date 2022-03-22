@@ -1,6 +1,6 @@
 import { fetchTargets } from 'src/modules/api'
 import { initSendReqests, startAttackNotify } from 'src/modules/ddos/ddosAttack'
-import { notifyError } from 'src/modules/notify'
+import { notifyError, notifyPrimary } from 'src/modules/notify'
 // import { analytics } from 'src/modules/analytics'
 import { i18n } from 'src/modules/i18n'
 
