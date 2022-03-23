@@ -5,4 +5,4 @@ const props = defineProps({})
 const emit = defineEmits([])
 </script>
 
-<style lang="scss" scouped></style>
+<style lang="scss" scoped></style>

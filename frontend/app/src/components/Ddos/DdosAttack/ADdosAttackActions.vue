@@ -43,4 +43,4 @@ const initAttack = () => {
 }
 </script>
 
-<style lang="scss" scouped></style>
+<style lang="scss" scoped></style>

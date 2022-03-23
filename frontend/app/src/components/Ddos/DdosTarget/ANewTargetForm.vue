@@ -87,7 +87,7 @@ const initSetTarget = () => {
 }
 </script>
 
-<style lang="scss" scouped>
+<style lang="scss" scoped>
 @media screen and (max-width: 920px) {
   .add-btn {
     margin: 16px 0 0 0;
