@@ -1,0 +1,1 @@
+.hidden{display:none}.status-badge{animation:heart-pulse .9s ease-out infinite;margin:8px}.status-badge,.status-badge .q-icon{height:0;width:0}@keyframes heart-pulse{0%{transform:scale(0)}50%{transform:scale(1.2)}70%{transform:scale(.65)}to{transform:scale(0)}}.main-layout>.q-card[data-v-78421647]{margin-top:16px}
