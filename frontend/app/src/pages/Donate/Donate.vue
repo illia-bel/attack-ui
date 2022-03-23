@@ -99,7 +99,7 @@ const openQrDialog = qrImgPath => {
 }
 </script>
 
-<style lang="scss" scouped>
+<style lang="scss" scoped>
 .pay-qr-code {
   width: auto;
   height: 200px;
