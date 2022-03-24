@@ -5,12 +5,16 @@
 
       <q-toolbar-title>
         <a-logo />
-        <a-indicator/>
+        <a-indicator />
       </q-toolbar-title>
       <q-separator vertical spaced="lg" />
       <a-locale-change color="white" />
       <q-separator vertical spaced="lg" />
-      <a href="https://t.me/attack_ui_bot" target="_blank">Support</a>
+      <a href="https://t.me/attack_ui_bot" target="_blank">
+        <q-icon name="headset_mic" class="text-h5">
+          <q-tooltip> Support </q-tooltip>
+        </q-icon>
+      </a>
     </q-toolbar>
   </q-header>
 </template>
@@ -31,34 +35,34 @@ const toggleLeftDrawer = () => {
 </script>
 
 <style lang="scss">
-  .hidden {
-    display: none;
-  }
+.hidden {
+  display: none;
+}
 
-  .status-badge {
+.status-badge {
+  width: 0;
+  height: 0;
+  margin: 8px;
+  animation: heart-pulse 0.9s infinite ease-out;
+
+  .q-icon {
     width: 0;
     height: 0;
-    margin: 8px;
-    animation: heart-pulse 0.9s infinite ease-out;
-
-    .q-icon {
-      width: 0;
-      height: 0;
-    }
   }
+}
 
-  @keyframes heart-pulse {
-    0% {
-      transform: scale(0);
-    }
-    50% {
-      transform: scale(1.2);
-    }
-    70% {
-      transform: scale(0.65);
-    }
-    100% {
-      transform: scale(0);
-    }
+@keyframes heart-pulse {
+  0% {
+    transform: scale(0);
   }
+  50% {
+    transform: scale(1.2);
+  }
+  70% {
+    transform: scale(0.65);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
 </style>
