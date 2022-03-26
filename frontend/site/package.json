@@ -1,0 +1,12 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "npx notablog generate ."
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head.html', { fontSize: 20, favicon: siteMeta.iconUrl }) %>
+    <title><%= post.title %>&nbsp;|&nbsp;<%= siteMeta.title %></title>
+    <meta property="og:type" content="blog" />
+    <meta property="og:title" content="<%= post.title %>" />
+    <% if (post.description) { %>
+    <meta name="description" content="<%= post.descriptionPlain %>" />
+    <meta property="og:description" content="<%= post.descriptionPlain %>" />
+    <% } %> <% if (post.iconUrl) { %>
+    <meta property="og:image" content="<%= post.iconUrl %>" />
+    <% } %>
+    <style>
+      .DateTagBar {
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <%- include('partials/navbar.html', { siteMeta }) %>
+    <header class="Header">
+      <% if (post.cover) { %>
+      <div class="Header__Cover">
+        <img src="<%= post.cover %>" />
+      </div>
+      <% } %>
+      <div class="Header__Spacer <% if (!post.cover) { %>Header__Spacer--NoCover<% } %>"></div>
+      <% if (post.iconUrl) { %>
+      <div class="Header__Icon">
+        <span><img class="inline-img-icon" src="<%= post.iconUrl %>" /></span>
+      </div>
+      <% } %>
+      <h1 class="Header__Title"><%= post.title %></h1>
+      <% if (post.date || post.tags.length) { %>
+      <div class="DateTagBar">
+        <% if (post.date) { %>
+        <span class="DateTagBar__Item DateTagBar__Date">Posted on <%= post.dateString %></span>
+        <% } %> <% post.tags.forEach(function(tag) { %>
+        <span class="DateTagBar__Item DateTagBar__Tag DateTagBar__Tag--<%= tag.color %>">
+          <a href="tag/<%= tag.value %>.html"><%= tag.value %></a>
+        </span>
+        <% }) %>
+      </div>
+      <% } %>
+    </header>
+    <%- post.contentHTML %> <%- include('partials/footer.html', { siteMeta }) %>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HRJ16TF01K"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+
+      gtag('config', 'G-0VHTY1LMEE')
+    </script>
+  </body>
+</html>
