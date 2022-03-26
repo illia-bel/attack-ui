@@ -8,6 +8,7 @@
     "frontend/*"
   ],
   "scripts": {
+    "build-frontend": "yarn workspace attack-ui-app build && yarn workspace attack-ui-site build && sh ./frontend/build.sh",
     "fix": "npx prettier \"**/*\" --write"
   }
 }
