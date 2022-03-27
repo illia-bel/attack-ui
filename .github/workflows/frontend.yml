@@ -26,19 +26,19 @@ jobs:
         run: yarn build-frontend # Build project
 
       # Deploy Ssh
-      - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_HOSTING_PRIVATE_KEY }}
-          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+      # - name: Install SSH Key
+      #   uses: shimataro/ssh-key-action@v2
+      #   with:
+      #     key: ${{ secrets.SSH_HOSTING_PRIVATE_KEY }}
+      #     known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
 
-      - name: Adding Known Hosts
-        run: ssh-keyscan server2 -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+      # - name: Adding Known Hosts
+      #   run: ssh-keyscan server2 -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy with rsync
-        run:
-          rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" frontend/dist ${{ secrets.SSH_USER }}@${{
-          secrets.SSH_HOST}}:apexi.tech/war/
+      # - name: Deploy with rsync
+      #   run:
+      #     rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" frontend/dist ${{ secrets.SSH_USER }}@${{
+      #     secrets.SSH_HOST}}:apexi.tech/war/
 
       - name: Push to build tree
         uses: s0/git-publish-subdir-action@develop

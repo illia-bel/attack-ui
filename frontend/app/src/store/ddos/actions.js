@@ -137,9 +137,15 @@ export const destroyTargetsAutoUpdateInterval = ctx => {
  * Handle Targets Auto-Update settings
  */
 export const setTargetsUpdateSettings = (ctx, settings) => {
+  const prevTargetsFileUrl = ctx.getters.getTargetsFileUrl
   ctx.commit('setDdosConfig', settings)
 
-  const { isTargetsAutoUpdateEnabled, targetsAutoUpdateInterval } = settings
+  const { isTargetsAutoUpdateEnabled, targetsAutoUpdateInterval, targetsFileUrl } = settings
+
+  if (targetsFileUrl !== prevTargetsFileUrl) {
+    console.log('set')
+    ctx.dispatch('setDefaultTargets')
+  }
 
   if (isTargetsAutoUpdateEnabled && targetsAutoUpdateInterval) {
     ctx.dispatch('initTargetsAutoUpdateInterval')
