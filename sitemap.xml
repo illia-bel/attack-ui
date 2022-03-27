@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://war.apexi.tech/</loc>
-    <lastmod>2022-03-26</lastmod>
-  </url>
-  <url>
-    <loc>https://war.apexi.tech/attack/ddos/config</loc>
-    <lastmod>2022-03-26</lastmod>
-  </url>
-  <url>
-    <loc>https://war.apexi.tech/attack/ddos/start</loc>
-    <lastmod>2022-03-26</lastmod>
-  </url>
-  <url>
-    <loc>https://war.apexi.tech/ru-data/emails</loc>
-    <lastmod>2022-03-26</lastmod>
-  </url>
-  <url>
-    <loc>https://war.apexi.tech/donate</loc>
-    <lastmod>2022-03-26</lastmod>
-  </url>
+  <loc>https://war.apexi.tech/</loc>
+  <lastmod>3/27/2022</lastmod>
+</url><url>
+  <loc>https://war.apexi.tech/attack/ddos/config</loc>
+  <lastmod>3/27/2022</lastmod>
+</url><url>
+  <loc>https://war.apexi.tech/attack/ddos/start</loc>
+  <lastmod>3/27/2022</lastmod>
+</url><url>
+  <loc>https://war.apexi.tech/ru-data/emails</loc>
+  <lastmod>3/27/2022</lastmod>
+</url><url>
+  <loc>https://war.apexi.tech/donate</loc>
+  <lastmod>3/27/2022</lastmod>
+</url><url>
+  <loc>https://war.apexi.tech/site/index.html</loc>
+  <lastmod>3/27/2022</lastmod>
+</url><url>
+  <loc>https://war.apexi.tech/site/introduction.html</loc>
+  <lastmod>3/27/2022</lastmod>
+</url>
 </urlset>
