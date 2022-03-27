@@ -11,6 +11,20 @@
     <% } %> <% if (siteMeta.iconUrl) { %>
     <meta property="og:image" content="<%= siteMeta.iconUrl %>" />
     <% } %>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org/",
+        "@type": "WebSite",
+        "name": "<%= siteMeta.title %>",
+        "url": "https://war.apexi.tech",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "{search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
   </head>
 
   <body>

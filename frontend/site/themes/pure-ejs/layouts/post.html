@@ -16,6 +16,28 @@
         margin-top: 1rem;
       }
     </style>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "<%= post.title %>",
+        "image": "<%= post.cover %>",
+        "author": {
+          "@type": "Organization",
+          "name": "Attack UI"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "",
+          "logo": {
+            "@type": "ImageObject",
+            "url": ""
+          }
+        },
+        "datePublished": "<%= post.dateString %>"
+      }
+    </script>
   </head>
 
   <body>
@@ -46,7 +68,6 @@
       <% } %>
     </header>
     <%- post.contentHTML %> <%- include('partials/footer.html', { siteMeta }) %>
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HRJ16TF01K"></script>
     <script>

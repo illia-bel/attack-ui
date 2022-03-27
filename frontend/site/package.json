@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "npx notablog generate ."
+    "build": "npx notablog generate . && yarn sitemap",
+    "dev": "npx notablog generate . && yarn sitemap && node live-server.js",
+    "sitemap": "node sitemap-generator.js"
   },
   "devDependencies": {
     "live-server": "^1.2.1"
