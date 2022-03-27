@@ -10,7 +10,7 @@ for (let i = 0; i < jsonSitemapPaths.length; i++) {
     const readSitemap = JSON.parse(fs.readFileSync(pathJsonSitemap, 'utf8')).map(({ location, lastmod }) => {
       return {
         location,
-        lastmod: lastmod || new Date().toLocaleDateString().replace(/\./g, '-'),
+        lastmod: lastmod || new Date().toISOString().split('T')[0],
       }
     })
 
