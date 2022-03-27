@@ -45,9 +45,10 @@
 </template>
 
 <script setup>
-import { reactive, watch, computed } from 'vue'
+import { reactive, watch, computed, onBeforeMount } from 'vue'
 import { useStore } from 'vuex'
 import { useI18n } from 'vue-i18n'
+import { useRoute } from 'vue-router'
 import { validateTargetsSourceFile } from 'src/modules/ddos/ddosConfig'
 import { notifyError } from 'src/modules/notify'
 
@@ -55,6 +56,19 @@ import ACard from 'src/components/Cards/ACard'
 
 const { t: i18n } = useI18n()
 const store = useStore()
+const route = useRoute()
+
+onBeforeMount(() => {
+  if (!route.query.targets) {
+    return
+  }
+
+  targetsFileUrlModel.value = route.query.targets
+
+  store.dispatch('ddos/setTargetsUpdateSettings', {
+    targetsFileUrl: route.query.targets,
+  })
+})
 
 const isTargetsAutoUpdateEnabled = store.getters['ddos/getIsTargetsAutoUpdateEnabled']
 const targetsAutoUpdateInterval = store.getters['ddos/getTargetsAutoUpdateInterval']
@@ -68,7 +82,7 @@ const formData = reactive({
 
 const targetsFileUrlModel = computed({
   get() {
-    const link = formData.targetsFileUrl
+    const link = store.getters['ddos/getTargetsFileUrl']
     return link === 'targets.json' ? 'https://war.apexi.tech/' + link : link
   },
   async set(link) {

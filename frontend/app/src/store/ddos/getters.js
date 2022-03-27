@@ -61,12 +61,20 @@ export const getIsTargetsAutoUpdateEnabled = state => {
   return userConfig.isTargetsAutoUpdateEnabled ?? defaultConfig.isTargetsAutoUpdateEnabled
 }
 
+/**
+ * Targets autoupdate interval id
+ * @returns {Number}
+ */
 export const getTargetsAutoUpdateInterval = state => {
   const { user: userConfig, default: defaultConfig } = state.config
 
   return userConfig.targetsAutoUpdateInterval || defaultConfig.targetsAutoUpdateInterval
 }
 
+/**
+ * Target file (json array) url
+ * @returns {String}
+ */
 export const getTargetsFileUrl = state => {
   const { user: userConfig, default: defaultConfig } = state.config
 
