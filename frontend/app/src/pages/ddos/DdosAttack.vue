@@ -10,7 +10,6 @@ import { useStore } from 'vuex'
 
 import ADdosAttackHeader from 'src/components/Ddos/DdosAttack/ADdosAttackHeader'
 import ADdosResultsTable from 'src/components/Ddos/DdosAttack/ADdosResultsTable'
-import ADonateNotify from 'src/components/Notify/ADonateNotify'
 
 const store = useStore()
 
