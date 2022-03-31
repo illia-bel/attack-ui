@@ -51,7 +51,7 @@ const qrPath = ref()
 const payMethods = [
   {
     name: 'Monobank',
-    accountNumber: '4441-1144-5724-2749',
+    accountNumber: '4441114457242749',
   },
   {
     name: 'PrivatBank',

@@ -1,9 +1,11 @@
 <template>
   <div class="row column items-end">
     <template v-if="showActions">
-      <q-btn v-if="attackStatus" @click="destroyAttack" :label="i18n('attackPage.stopBtnLabel')" color="negative" />
-
-      <q-btn v-else @click="initAttack" :label="i18n('attackPage.startBtnLabel')" color="primary" />
+      <div>
+        <q-btn v-if="attackStatus" @click="destroyAttack" :label="i18n('attackPage.stopBtnLabel')" color="negative" />
+        <q-btn v-else @click="initAttack" :label="i18n('attackPage.startBtnLabel')" color="primary" />
+        <a-donate-page-link class="q-ml-sm" />
+      </div>
       <span class="text-grey q-mt-xs">
         {{ i18n('attackPage.actionsHint') }}
       </span>
@@ -23,6 +25,7 @@ import { computed } from 'vue'
 
 import { useStore } from 'vuex'
 import { useI18n } from 'vue-i18n'
+import ADonatePageLink from 'src/components/Donate/ADonatePageLink'
 
 const { t: i18n } = useI18n()
 const store = useStore()

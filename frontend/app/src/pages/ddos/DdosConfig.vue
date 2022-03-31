@@ -5,6 +5,7 @@
     </template>
     <template #actions>
       <a-dods-start-attack-btn :label="i18n('attackConfigPage.startAttackBtnLabel')" />
+      <a-donate-page-link class="q-ml-sm" />
     </template>
   </a-card>
 
@@ -25,6 +26,7 @@ import ADdosTargetsAutoUpdateCard from 'src/components/Ddos/DdosConfig/ADdosTarg
 import ADdosConfigFooter from 'src/components/Ddos/DdosConfig/ADdosConfigFooter'
 import AVpnDetect from 'src/components/Ddos/Notify/AVpnDetect'
 import ADodsStartAttackBtn from 'src/components/Ddos/DdosConfig/ADodsStartAttackBtn'
+import ADonatePageLink from 'src/components/Donate/ADonatePageLink'
 
 const { t: i18n } = useI18n()
 </script>
