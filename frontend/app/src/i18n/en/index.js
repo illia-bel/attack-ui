@@ -125,6 +125,7 @@ export default {
 
     telegram: 'Telegram',
     donatePage: 'Help the project',
+    github: 'GitHub',
   },
   ipNotify: {
     title: 'Use VPN with Russian or Belarusian IP for more effective attack',
