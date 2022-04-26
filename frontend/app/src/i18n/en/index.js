@@ -147,4 +147,8 @@ export default {
     closeBtnText: 'Close',
     donateBtnText: 'Donate project',
   },
+  promoBanner: {
+    message: 'Development of web applications/services/portals for B2B and B2C',
+    actionBtnText: 'Details',
+  },
 }
