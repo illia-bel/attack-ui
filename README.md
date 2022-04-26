@@ -1,6 +1,7 @@
 # Attack UI
 
-⚠️ This site is a project for load testing your own projects. The administration does not bear any responsibility for the illegal use of this resource
+⚠️ This project is a load testing project for your own websites. The developers are not responsible for the illegal use of this resource
+---
 
 ## Start Project
 1. Install Node js https://nodejs.org
