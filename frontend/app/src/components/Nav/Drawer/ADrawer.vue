@@ -100,5 +100,10 @@ const navList = [
     icon: 'group',
     to: '/https://t.me/+crdzxQgxVNg3ZTBi',
   },
+  {
+    text: 'nav.github',
+    icon: 'code',
+    to: '/https://github.com/ilya-belik/attack-ui',
+  },
 ]
 </script>

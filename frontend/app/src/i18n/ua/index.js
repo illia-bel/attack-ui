@@ -126,6 +126,7 @@ export default {
 
     telegram: 'Ми в Telegram',
     donatePage: 'Допомогти проекту',
+    github: 'Код на GitHub',
   },
   ipNotify: {
     title: 'Використовуйте VPN з російським або білоруським IP для більш ефективної атаки',
