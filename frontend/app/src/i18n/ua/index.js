@@ -148,4 +148,8 @@ export default {
     closeBtnText: 'Відмовитися',
     donateBtnText: 'Допомога проекту',
   },
+  promoBanner: {
+    message: 'Розробка веб-додатків/сервісів/порталів для B2B та B2C',
+    actionBtnText: 'Докладніше',
+  },
 }

@@ -1,4 +1,5 @@
 <template>
+  <a-promo-banner />
   <a-card class="col-12" :title="i18n('attackPage.pageTitle')">
     <template #body>
       {{ i18n('attackPage.statusTitle') }}:
@@ -25,6 +26,7 @@ import { useI18n } from 'vue-i18n'
 
 import ACard from 'src/components/Cards/ACard'
 import ADdosAttackActions from 'src/components/Ddos/DdosAttack/ADdosAttackActions'
+import APromoBanner from 'src/components/Donate/APromoBanner'
 
 const { t: i18n } = useI18n()
 const store = useStore()

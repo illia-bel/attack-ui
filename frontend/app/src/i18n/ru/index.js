@@ -144,4 +144,8 @@ export default {
     closeBtnText: 'Отказаться',
     donateBtnText: 'Помочь проекту',
   },
+  promoBanner: {
+    message: 'Разработка веб приложений/сервисов/порталов для B2B и B2C',
+    actionBtnText: 'Подробнее',
+  },
 }
