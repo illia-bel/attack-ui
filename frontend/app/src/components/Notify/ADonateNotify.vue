@@ -2,19 +2,29 @@
   <q-dialog v-model="dialogModel">
     <q-card>
       <q-card-section>
-        <div class="text-h6">🔥 Вы можете помочь проекту</div>
+        <div class="text-h6">🔥 {{ i18n('donateDialog.title') }}</div>
       </q-card-section>
 
       <q-card-section class="q-pt-none">
-        Для этого совсем не обязательно уметь писать код. Достаточно просто пожертвовать любую сумму удобным способом
-        перейдя по ссылке
-        <router-link :to="{ name: 'DonatePage' }" class="text-primary" v-close-popup>war.apexi.tech/donate</router-link>
-        или нажать кпопку "Помочь проекту"
+        {{ i18n('donateDialog.message') }}
       </q-card-section>
 
       <q-card-actions align="right">
-        <q-btn @click="refuseToDonate" flat label="Отказаться" color="grey" v-close-popup no-caps />
-        <q-btn :to="{ name: 'DonatePage' }" flat label="🚀 Помочь проекту" color="primary" v-close-popup />
+        <q-btn
+          @click="refuseToDonate"
+          flat
+          :label="i18n('donateDialog.closeBtnText')"
+          color="grey"
+          v-close-popup
+          no-caps
+        />
+        <q-btn
+          :to="{ name: 'DonatePage' }"
+          flat
+          :label="'🚀 ' + i18n('donateDialog.donateBtnText')"
+          color="primary"
+          v-close-popup
+        />
       </q-card-actions>
     </q-card>
   </q-dialog>
@@ -23,7 +33,9 @@
 <script setup>
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
+const { t: i18n } = useI18n()
 const route = useRoute()
 const dialogModel = ref(false)
 

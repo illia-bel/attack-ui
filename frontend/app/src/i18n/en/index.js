@@ -140,4 +140,11 @@ export default {
       'This site is a project for load testing your own projects. The administration does not bear any responsibility for the illegal use of this resource',
     okBtnLabel: 'Ok',
   },
+  donateDialog: {
+    title: 'You can help the project',
+    message:
+      'You don`t have to be able to code to do this. It is enough just to donate any amount in a convenient way by clicking the "Help the project" button',
+    closeBtnText: 'Close',
+    donateBtnText: 'Donate project',
+  },
 }
