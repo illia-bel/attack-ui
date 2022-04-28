@@ -49,7 +49,7 @@ const refuseToDonate = () => {
 setTimeout(() => {
   if (route.name === 'DonatePage') return
   dialogModel.value = true
-}, 10000)
+}, 15000)
 </script>
 
 <style lang="scss" scoped></style>
